@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog – Youssef El Hadraoui (English)</title>
+    <link>https://yel-hadr.github.io/blog/</link>
+    <description>Short technical posts on backends, cloud infrastructure and DevOps: the problem, why it happens, the fix and a snippet to reuse.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://yel-hadr.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PgBouncer transaction pooling breaks django-tenants</title>
+      <link>https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>django-tenants picks the tenant with a session-level SET search_path, which PgBouncer&#39;s transaction mode does not keep. Why queries can reach the wrong schema, and two fixes.</description>
+      <category>PostgreSQL</category>
+      <category>PgBouncer</category>
+      <category>django-tenants</category>
+    </item>
+    <item>
+      <title>Argo CD automated sync neither prunes nor self-heals by default</title>
+      <link>https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Automated sync applies new commits, but it keeps resources deleted from Git and ignores manual changes in the cluster. The prune and selfHeal options close those two gaps.</description>
+      <category>Argo CD</category>
+      <category>GitOps</category>
+      <category>Kubernetes</category>
+    </item>
+    <item>
+      <title>VXLAN takes 50 bytes off every packet&#39;s MTU</title>
+      <link>https://yel-hadr.github.io/blog/vxlan-mtu-overhead/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/vxlan-mtu-overhead/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>VXLAN adds 50 bytes of headers to every frame, 70 over IPv6. On a 1500-byte underlay, set the overlay MTU to 1450 or use jumbo frames, or large transfers stall while pings work.</description>
+      <category>VXLAN</category>
+      <category>BGP EVPN</category>
+      <category>MTU</category>
+    </item>
+    <item>
+      <title>Terraform can lock S3 state without DynamoDB</title>
+      <link>https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking.</description>
+      <category>Terraform</category>
+      <category>AWS S3</category>
+    </item>
+    <item>
+      <title>Loki wants JSON log lines and few labels</title>
+      <link>https://yel-hadr.github.io/blog/loki-json-logs-and-labels/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/loki-json-logs-and-labels/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Loki indexes labels only, so high-cardinality fields such as request or tenant IDs belong in the log line. With one JSON object per line, LogQL&#39;s json parser filters on them at query time.</description>
+      <category>Loki</category>
+      <category>LogQL</category>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>tmux keeps remote work alive when SSH drops</title>
+      <link>https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Work on a server inside a named tmux session. If the connection drops, the shell and its running commands survive, and tmux attach brings them back. A few default key bindings cover daily use.</description>
+      <category>tmux</category>
+      <category>SSH</category>
+    </item>
+  </channel>
+</rss>

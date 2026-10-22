@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://yel-hadr.github.io/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/status/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/vxlan-mtu-overhead/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/vxlan-mtu-overhead/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/vxlan-mtu-overhead/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/vxlan-mtu-overhead/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/vxlan-mtu-overhead/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/loki-json-logs-and-labels/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/loki-json-logs-and-labels/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/loki-json-logs-and-labels/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/loki-json-logs-and-labels/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/loki-json-logs-and-labels/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/tmux-keeps-work-alive-over-ssh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/tmux-keeps-work-alive-over-ssh/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/tmux-keeps-work-alive-over-ssh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/" />
+  </url>
+</urlset>

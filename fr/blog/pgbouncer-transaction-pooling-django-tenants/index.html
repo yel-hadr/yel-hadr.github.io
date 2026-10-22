@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050816" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <script>
+  (function () {
+    var root = document.documentElement;
+    var theme;
+    try {
+      theme = localStorage.getItem('theme');
+    } catch (e) {}
+    // Dark is the site's default look; light only when the visitor picked it
+    if (theme !== 'light') theme = 'dark';
+    root.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content =
+      theme === 'light' ? '#f6f5fb' : '#050816';
+    document.querySelector('meta[name="color-scheme"]').content = theme;
+  })();
+</script>
+    <title>Le pooling par transaction de PgBouncer casse django-tenants | Youssef El Hadraoui</title>
+<meta name="description" content="django-tenants choisit le tenant avec un SET search_path de session, que le mode transaction de PgBouncer ne conserve pas. Pourquoi des requêtes visent le mauvais schéma, et deux solutions." />
+<link rel="canonical" href="https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Youssef El Hadraoui" />
+<link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/" />
+<link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/" />
+<link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/" />
+<link rel="alternate" type="application/rss+xml" title="Blog – Youssef El Hadraoui (français)" href="https://yel-hadr.github.io/fr/blog/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="Blog – Youssef El Hadraoui (English)" href="https://yel-hadr.github.io/blog/rss.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Youssef El Hadraoui" />
+<meta property="og:title" content="Le pooling par transaction de PgBouncer casse django-tenants | Youssef El Hadraoui" />
+<meta property="og:description" content="django-tenants choisit le tenant avec un SET search_path de session, que le mode transaction de PgBouncer ne conserve pas. Pourquoi des requêtes visent le mauvais schéma, et deux solutions." />
+<meta property="og:url" content="https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/" />
+<meta property="og:image" content="https://yel-hadr.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="article:published_time" content="2026-10-21" />
+<meta property="article:modified_time" content="2026-10-21" />
+<meta property="article:author" content="https://yel-hadr.github.io/" />
+<meta property="article:tag" content="PostgreSQL" />
+<meta property="article:tag" content="PgBouncer" />
+<meta property="article:tag" content="django-tenants" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Le pooling par transaction de PgBouncer casse django-tenants | Youssef El Hadraoui" />
+<meta name="twitter:description" content="django-tenants choisit le tenant avec un SET search_path de session, que le mode transaction de PgBouncer ne conserve pas. Pourquoi des requêtes visent le mauvais schéma, et deux solutions." />
+<meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
+<meta name="twitter:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Le pooling par transaction de PgBouncer casse django-tenants","description":"django-tenants choisit le tenant avec un SET search_path de session, que le mode transaction de PgBouncer ne conserve pas. Pourquoi des requêtes visent le mauvais schéma, et deux solutions.","url":"https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/","inLanguage":"fr","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"PostgreSQL, PgBouncer, django-tenants","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
+    <link rel="stylesheet" href="/assets/index-3_T5cOui.css" />
+    <link rel="stylesheet" href="/assets/blog-B2OSrHbM.css" />
+    
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <div class="blog-backdrop" aria-hidden="true"></div>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+    <header class="sticky top-0 z-50 border-b border-line bg-background/80 backdrop-blur-md">
+      <div class="blog-container flex items-center justify-between gap-2 py-3">
+        <a href="/" class="flex shrink-0 items-center gap-2 rounded-xl" aria-label="Youssef El Hadraoui, accueil du portfolio">
+          <img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 object-contain" />
+          <span aria-hidden="true" class="hidden text-lg font-bold text-foreground sm:inline">Youssef El Hadraoui</span>
+        </a>
+        <div class="flex items-center gap-1 sm:gap-2">
+          <nav aria-label="Blog">
+            <ul class="flex items-center gap-1">
+              <li><a href="/fr/blog/" class="header-link">Blog</a></li>
+              <li><a href="/fr/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+            </ul>
+          </nav>
+          <div role="group" aria-label="Langue" class="lang-switch"><a href="/blog/pgbouncer-transaction-pooling-django-tenants/" lang="en" hreflang="en" data-lang-link="en" class="lang-option"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/pgbouncer-transaction-pooling-django-tenants/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option is-active" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
+          <button type="button" class="icon-btn" data-theme-toggle hidden aria-label="Passer en mode clair" title="Passer en mode clair"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="theme-icon-sun h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="theme-icon-moon h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1" class="blog-container flex-1 py-12 sm:py-16">
+      <article class="mx-auto max-w-3xl" aria-labelledby="post-title">
+        <p><a href="/fr/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Tous les articles</a></p>
+        <header class="mt-6">
+          <h1 id="post-title" class="text-3xl font-black leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">Le pooling par transaction de PgBouncer casse django-tenants</h1>
+          <p class="mt-4 text-base leading-relaxed text-foreground-muted sm:text-lg">django-tenants choisit le tenant avec un SET search_path de session, que le mode transaction de PgBouncer ne conserve pas. Pourquoi des requêtes visent le mauvais schéma, et deux solutions.</p>
+          <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <p class="post-meta"><span class="sr-only">Publié le </span><time datetime="2026-10-21">21 octobre 2026</time><span aria-hidden="true">·</span><span>3 min de lecture</span></p>
+            <ul class="flex flex-wrap gap-2" aria-label="Sujets"><li class="tag text-info">PostgreSQL</li><li class="tag text-success">PgBouncer</li><li class="tag text-primary-400">django-tenants</li></ul>
+          </div>
+        </header>
+        <div class="card-glass mt-10 p-5 sm:p-10">
+          <div class="prose-blog">
+<h2 id="le-probleme">Le problème</h2>
+<p><a href="https://django-tenants.readthedocs.io/">django-tenants</a> donne à chaque tenant son propre schéma PostgreSQL. Pour aiguiller les requêtes, il exécute <code>SET search_path</code> sur la connexion à la base quand le tenant actif change, puis laisse toutes les requêtes suivantes s’appuyer sur ce réglage.</p>
+<p>Placez PgBouncer devant PostgreSQL en mode de pooling <strong>par transaction</strong> et cette hypothèse ne tient plus. Des requêtes peuvent viser le mauvais schéma : celui d’un autre tenant, ou <code>public</code>. Rien n’échoue bruyamment, et c’est bien ce qui rend le problème dangereux.</p>
+<h2 id="pourquoi">Pourquoi</h2>
+<p><code>SET search_path</code> modifie l’état de la session : le réglage reste sur la connexion serveur PostgreSQL qui l’a exécuté, jusqu’à ce qu’elle le change à nouveau ou se ferme.</p>
+<p>En mode transaction, PgBouncer ne prête une connexion serveur à un client que le temps d’une transaction, puis la rend au pool. Avec l’autocommit par défaut de Django, chaque requête exécutée hors d’un bloc <code>atomic()</code> explicite forme sa propre transaction. Donc :</p>
+<ol>
+<li>Django envoie <code>SET search_path = tenant_a, public</code>. PgBouncer l’exécute sur la connexion serveur 1, puis la libère.</li>
+<li>Django envoie <code>SELECT ... FROM orders</code>. PgBouncer prend la première connexion serveur libre, disons la 2, dont le <code>search_path</code> est celui que le dernier client y a laissé.</li>
+<li>La connexion 1 porte désormais le search path de <code>tenant_a</code>, prête à être prêtée à un autre client.</li>
+</ol>
+<p>La documentation de PgBouncer le dit clairement : les fonctionnalités liées à la session, comme <code>SET</code>, ne sont pas prises en charge en pooling par transaction, tout simplement parce que le client ne garde pas la même connexion serveur.</p>
+<h2 id="la-solution">La solution</h2>
+<p>Choisissez l’une de ces options pour l’application multi-tenant :</p>
+<ul>
+<li><strong>Le pooling par session.</strong> En mode session, un client garde la même connexion serveur jusqu’à sa déconnexion : le <code>SET</code> et les requêtes qui le suivent partagent donc toujours la même connexion. PgBouncer plafonne toujours le nombre de connexions serveur ; dimensionnez le pool selon le nombre de connexions Django simultanées. <code>pool_mode</code> peut aussi se régler par base dans la section <code>[databases]</code>, si d’autres applications du même PgBouncer ont besoin du mode transaction.</li>
+<li><strong>Pas de PgBouncer pour cette application.</strong> Connectez Django directement à PostgreSQL et gardez les connexions ouvertes entre les requêtes avec <code>CONN_MAX_AGE</code>.</li>
+</ul>
+<p>Côté PgBouncer :</p>
+<div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">ini</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : ini"><code class="language-ini"><span class="tok-comment">; pgbouncer.ini</span>
+[databases]
+app = host=postgres port=5432 dbname=app
+
+[pgbouncer]
+listen_addr = 0.0.0.0
+listen_port = 6432
+auth_type = scram-sha-256
+auth_file = /etc/pgbouncer/userlist.txt
+<span class="tok-comment">; django-tenants exécute un SET search_path au niveau de la session :</span>
+<span class="tok-comment">; il doit passer par la même connexion serveur que les requêtes</span>
+pool_mode = session
+default_pool_size = 20</code></pre></div>
+<p>Côté Django, en connexion directe :</p>
+<div class="code-block" data-code="2"><div class="code-head"><span class="code-lang">python</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 2 : python"><code class="language-python">DATABASES = {
+    &quot;default&quot;: {
+        &quot;ENGINE&quot;: &quot;django_tenants.postgresql_backend&quot;,
+        &quot;NAME&quot;: &quot;app&quot;,
+        &quot;HOST&quot;: &quot;postgres&quot;,
+        &quot;PORT&quot;: 5432,
+        <span class="tok-comment"># Réutiliser chaque connexion jusqu&#39;à 60 secondes au lieu d&#39;en ouvrir une par requête</span>
+        &quot;CONN_MAX_AGE&quot;: 60,
+        <span class="tok-comment"># Vérifier une connexion réutilisée avant que la requête s&#39;en serve (Django 4.1+)</span>
+        &quot;CONN_HEALTH_CHECKS&quot;: True,
+    }
+}</code></pre></div>
+<h2 id="a-retenir">À retenir</h2>
+<p>Avant de placer un pooler par transaction devant une application, cherchez tout ce qu’elle garde dans la session : <code>SET</code>, verrous consultatifs (advisory locks), requêtes préparées, <code>LISTEN</code>. Les bibliothèques à un schéma par tenant reposent précisément sur ce type d’état.</p>
+
+          </div>
+        </div>
+      </article>
+      <nav aria-label="Autres articles" class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
+          <span></span>
+          <a href="/fr/blog/argo-cd-automated-sync-prune-self-heal/" rel="next" class="card-glass post-nav-link sm:text-right">
+            <span class="post-nav-label sm:justify-end">Article suivant<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="font-semibold text-foreground">La synchronisation automatique d’Argo CD ne nettoie ni ne corrige rien par défaut</span>
+          </a>
+      </nav>
+    </main>
+    <footer class="border-t border-line bg-background/80 backdrop-blur-md">
+      <div class="blog-container flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-8 text-sm text-foreground-muted">
+        <p>© 2026 Youssef El Hadraoui</p>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          <li><a href="/" class="footer-link">Portfolio</a></li>
+          <li><a href="/fr/blog/" class="footer-link">Tous les articles</a></li>
+          <li><a href="/fr/blog/rss.xml" class="footer-link" type="application/rss+xml">RSS</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
+    <script type="module" src="/assets/blog-9AhNq6mA.js"></script>
+  </body>
+</html>

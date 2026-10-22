@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog – Youssef El Hadraoui (français)</title>
+    <link>https://yel-hadr.github.io/fr/blog/</link>
+    <description>De courts articles techniques sur les backends, l’infrastructure cloud et le DevOps : le problème, sa cause, la solution et un extrait réutilisable.</description>
+    <language>fr</language>
+    <lastBuildDate>Wed, 21 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://yel-hadr.github.io/fr/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Le pooling par transaction de PgBouncer casse django-tenants</title>
+      <link>https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/pgbouncer-transaction-pooling-django-tenants/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>django-tenants choisit le tenant avec un SET search_path de session, que le mode transaction de PgBouncer ne conserve pas. Pourquoi des requêtes visent le mauvais schéma, et deux solutions.</description>
+      <category>PostgreSQL</category>
+      <category>PgBouncer</category>
+      <category>django-tenants</category>
+    </item>
+    <item>
+      <title>La synchronisation automatique d’Argo CD ne nettoie ni ne corrige rien par défaut</title>
+      <link>https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>La synchronisation automatique applique les nouveaux commits, mais garde les ressources supprimées de Git et ignore les modifications manuelles du cluster. Les options prune et selfHeal comblent ces deux manques.</description>
+      <category>Argo CD</category>
+      <category>GitOps</category>
+      <category>Kubernetes</category>
+    </item>
+    <item>
+      <title>VXLAN retire 50 octets au MTU de chaque paquet</title>
+      <link>https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>VXLAN ajoute 50 octets d’en-têtes à chaque trame, 70 sur IPv6. Sur un underlay à 1500 octets, fixez le MTU de l’overlay à 1450 ou passez aux trames jumbo, sinon les gros transferts bloquent alors que les pings passent.</description>
+      <category>VXLAN</category>
+      <category>BGP EVPN</category>
+      <category>MTU</category>
+    </item>
+    <item>
+      <title>Terraform verrouille l’état S3 sans DynamoDB</title>
+      <link>https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Depuis Terraform 1.10, le backend S3 peut verrouiller l’état avec un objet .tflock placé à côté du fichier d’état (use_lockfile = true). La fonctionnalité est stable depuis la 1.11, qui a rendu obsolète le verrouillage par DynamoDB.</description>
+      <category>Terraform</category>
+      <category>AWS S3</category>
+    </item>
+    <item>
+      <title>Loki veut des logs JSON et peu de labels</title>
+      <link>https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Loki n’indexe que les labels : les champs à forte cardinalité, comme un identifiant de requête ou de tenant, vont dans la ligne de log. Avec un objet JSON par ligne, le parseur json de LogQL filtre dessus au moment de la requête.</description>
+      <category>Loki</category>
+      <category>LogQL</category>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>tmux garde le travail distant en vie quand SSH coupe</title>
+      <link>https://yel-hadr.github.io/fr/blog/tmux-keeps-work-alive-over-ssh/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/tmux-keeps-work-alive-over-ssh/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Travaillez sur un serveur dans une session tmux nommée. Si la connexion tombe, le shell et les commandes en cours survivent, et tmux attach les récupère. Quelques raccourcis par défaut couvrent le quotidien.</description>
+      <category>tmux</category>
+      <category>SSH</category>
+    </item>
+  </channel>
+</rss>
