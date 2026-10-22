@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-22T00:30:46.102Z",
+  "overall": "operational",
+  "reasons": [],
+  "rules": {
+    "outage": "a critical monitor is down",
+    "degraded": "another monitor is down, a monitor is slower than its slowMs, or a pipeline that affects the overall status failed its latest decisive run or could not be read",
+    "operational": "none of the above"
+  },
+  "interval": {
+    "minutes": 30,
+    "retentionDays": 7
+  },
+  "history": {
+    "loaded": true,
+    "samples": 1
+  },
+  "monitors": [
+    {
+      "id": "portfolio",
+      "name": "Portfolio",
+      "kind": "http",
+      "url": "https://yel-hadr.github.io/",
+      "method": "GET",
+      "critical": true,
+      "state": "up",
+      "ok": true,
+      "statusCode": 200,
+      "latencyMs": 138,
+      "slowMs": 3000,
+      "attempts": 1,
+      "error": null,
+      "checkedAt": "2026-10-22T00:30:46.102Z",
+      "uptime": {
+        "24h": {
+          "ratio": 1,
+          "samples": 1
+        },
+        "7d": {
+          "ratio": 1,
+          "samples": 1
+        }
+      },
+      "latency24h": {
+        "p50": 138,
+        "p95": 138,
+        "samples": 1
+      }
+    },
+    {
+      "id": "resume",
+      "name": "Resume (PDF)",
+      "kind": "http",
+      "url": "https://yel-hadr.github.io/Youssef_Elhadraoui_Resume.pdf",
+      "method": "GET",
+      "critical": false,
+      "state": "up",
+      "ok": true,
+      "statusCode": 200,
+      "latencyMs": 141,
+      "slowMs": 3000,
+      "attempts": 1,
+      "error": null,
+      "checkedAt": "2026-10-22T00:30:46.102Z",
+      "uptime": {
+        "24h": {
+          "ratio": 1,
+          "samples": 1
+        },
+        "7d": {
+          "ratio": 1,
+          "samples": 1
+        }
+      },
+      "latency24h": {
+        "p50": 141,
+        "p95": 141,
+        "samples": 1
+      }
+    },
+    {
+      "id": "blog-feed",
+      "name": "Blog RSS feed",
+      "kind": "http",
+      "url": "https://yel-hadr.github.io/blog/rss.xml",
+      "method": "GET",
+      "critical": false,
+      "state": "up",
+      "ok": true,
+      "statusCode": 200,
+      "latencyMs": 143,
+      "slowMs": 3000,
+      "attempts": 1,
+      "error": null,
+      "checkedAt": "2026-10-22T00:30:46.102Z",
+      "uptime": {
+        "24h": {
+          "ratio": 1,
+          "samples": 1
+        },
+        "7d": {
+          "ratio": 1,
+          "samples": 1
+        }
+      },
+      "latency24h": {
+        "p50": 143,
+        "p95": 143,
+        "samples": 1
+      }
+    },
+    {
+      "id": "github-api",
+      "name": "GitHub API",
+      "kind": "http",
+      "url": "https://api.github.com/",
+      "method": "GET",
+      "critical": false,
+      "state": "up",
+      "ok": true,
+      "statusCode": 200,
+      "latencyMs": 311,
+      "slowMs": 3000,
+      "attempts": 1,
+      "error": null,
+      "checkedAt": "2026-10-22T00:30:46.102Z",
+      "uptime": {
+        "24h": {
+          "ratio": 1,
+          "samples": 1
+        },
+        "7d": {
+          "ratio": 1,
+          "samples": 1
+        }
+      },
+      "latency24h": {
+        "p50": 311,
+        "p95": 311,
+        "samples": 1
+      }
+    }
+  ],
+  "pipelines": [
+    {
+      "id": "portfolio-cicd",
+      "name": "CI/CD Pipeline",
+      "repo": "yel-hadr/portfolio",
+      "workflow": "deploy.yml",
+      "branch": "main",
+      "affectsOverall": true,
+      "url": "https://github.com/yel-hadr/portfolio/actions",
+      "state": "passing",
+      "inProgress": false,
+      "latestRun": {
+        "id": 39699898527,
+        "number": 6,
+        "title": "Merge pull request #7 from yel-hadr/blog-seo-status",
+        "event": "push",
+        "branch": "main",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/39699898527",
+        "headSha": "13a5c1ddd80fa3a561ea8fbaa976ff38a587ac1b",
+        "createdAt": "2026-10-22T00:28:32Z",
+        "startedAt": "2026-10-22T00:28:32Z",
+        "updatedAt": "2026-10-22T00:29:14Z",
+        "durationSeconds": 42
+      },
+      "lastCompletedRun": {
+        "id": 39699898527,
+        "number": 6,
+        "title": "Merge pull request #7 from yel-hadr/blog-seo-status",
+        "event": "push",
+        "branch": "main",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/39699898527",
+        "headSha": "13a5c1ddd80fa3a561ea8fbaa976ff38a587ac1b",
+        "createdAt": "2026-10-22T00:28:32Z",
+        "startedAt": "2026-10-22T00:28:32Z",
+        "updatedAt": "2026-10-22T00:29:14Z",
+        "durationSeconds": 42
+      },
+      "lastSuccessAt": "2026-10-22T00:29:14Z",
+      "successRate": {
+        "window": 3,
+        "decisive": 3,
+        "succeeded": 3,
+        "rate": 1
+      },
+      "error": null
+    },
+    {
+      "id": "pages-build",
+      "name": "pages-build-deployment",
+      "repo": "yel-hadr/yel-hadr.github.io",
+      "workflow": 83979990,
+      "branch": "main",
+      "affectsOverall": true,
+      "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions",
+      "state": "passing",
+      "inProgress": false,
+      "latestRun": {
+        "id": 39699964524,
+        "number": 11,
+        "title": "pages build and deployment",
+        "event": "dynamic",
+        "branch": "main",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/39699964524",
+        "headSha": "934d017af412533fd9f7047f2f6aad991c97aa5e",
+        "createdAt": "2026-10-22T00:29:13Z",
+        "startedAt": "2026-10-22T00:29:13Z",
+        "updatedAt": "2026-10-22T00:29:40Z",
+        "durationSeconds": 27
+      },
+      "lastCompletedRun": {
+        "id": 39699964524,
+        "number": 11,
+        "title": "pages build and deployment",
+        "event": "dynamic",
+        "branch": "main",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/39699964524",
+        "headSha": "934d017af412533fd9f7047f2f6aad991c97aa5e",
+        "createdAt": "2026-10-22T00:29:13Z",
+        "startedAt": "2026-10-22T00:29:13Z",
+        "updatedAt": "2026-10-22T00:29:40Z",
+        "durationSeconds": 27
+      },
+      "lastSuccessAt": "2026-10-22T00:29:40Z",
+      "successRate": {
+        "window": 4,
+        "decisive": 4,
+        "succeeded": 4,
+        "rate": 1
+      },
+      "error": null
+    },
+    {
+      "id": "iot-codeql",
+      "name": "CodeQL",
+      "repo": "yel-hadr/-Inception-of-Things",
+      "workflow": 276425880,
+      "branch": "master",
+      "affectsOverall": false,
+      "url": "https://github.com/yel-hadr/-Inception-of-Things/actions",
+      "state": "failing",
+      "inProgress": false,
+      "latestRun": {
+        "id": 36407489826,
+        "number": 33,
+        "title": "Scheduled",
+        "event": "dynamic",
+        "branch": "master",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/yel-hadr/-Inception-of-Things/actions/runs/36407489826",
+        "headSha": "3a2cb7e9c8b4545eb91bd5f0823f282631e2af4a",
+        "createdAt": "2026-09-28T10:04:42Z",
+        "startedAt": "2026-09-28T10:04:42Z",
+        "updatedAt": "2026-09-28T10:04:48Z",
+        "durationSeconds": 6
+      },
+      "lastCompletedRun": {
+        "id": 36407489826,
+        "number": 33,
+        "title": "Scheduled",
+        "event": "dynamic",
+        "branch": "master",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/yel-hadr/-Inception-of-Things/actions/runs/36407489826",
+        "headSha": "3a2cb7e9c8b4545eb91bd5f0823f282631e2af4a",
+        "createdAt": "2026-09-28T10:04:42Z",
+        "startedAt": "2026-09-28T10:04:42Z",
+        "updatedAt": "2026-09-28T10:04:48Z",
+        "durationSeconds": 6
+      },
+      "lastSuccessAt": "2026-08-26T20:25:00Z",
+      "successRate": {
+        "window": 20,
+        "decisive": 20,
+        "succeeded": 15,
+        "rate": 0.75
+      },
+      "error": null
+    }
+  ],
+  "links": {
+    "page": "https://yel-hadr.github.io/status/",
+    "summary": "https://yel-hadr.github.io/status.json",
+    "history": "https://yel-hadr.github.io/status/history.json",
+    "source": "https://github.com/yel-hadr/portfolio/blob/main/scripts/status/check.mjs",
+    "workflow": "https://github.com/yel-hadr/portfolio/actions/workflows/status.yml"
+  }
+}
