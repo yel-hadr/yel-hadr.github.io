@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T01:55:02.380Z",
+  "generatedAt": "2026-10-24T07:11:00.443Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -14,7 +14,7 @@
   },
   "history": {
     "loaded": true,
-    "samples": 13
+    "samples": 14
   },
   "monitors": [
     {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 338,
+      "latencyMs": 51,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-24T01:55:02.380Z",
+      "checkedAt": "2026-10-24T07:11:00.443Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -39,12 +39,12 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 13
+          "samples": 14
         }
       },
       "latency24h": {
-        "p50": 146,
-        "p95": 371,
+        "p50": 144,
+        "p95": 338,
         "samples": 6
       }
     },
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 171,
+      "latencyMs": 97,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-24T01:55:02.380Z",
+      "checkedAt": "2026-10-24T07:11:00.443Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -70,11 +70,11 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 13
+          "samples": 14
         }
       },
       "latency24h": {
-        "p50": 163,
+        "p50": 161,
         "p95": 195,
         "samples": 6
       }
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 295,
+      "latencyMs": 81,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-24T01:55:02.380Z",
+      "checkedAt": "2026-10-24T07:11:00.443Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -101,11 +101,11 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 13
+          "samples": 14
         }
       },
       "latency24h": {
-        "p50": 154,
+        "p50": 147,
         "p95": 295,
         "samples": 6
       }
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 312,
+      "latencyMs": 171,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-24T01:55:02.380Z",
+      "checkedAt": "2026-10-24T07:11:00.443Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -132,11 +132,11 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 13
+          "samples": 14
         }
       },
       "latency24h": {
-        "p50": 312,
+        "p50": 256,
         "p95": 369,
         "samples": 6
       }
@@ -203,40 +203,40 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 40039604227,
-        "number": 24,
+        "id": 40051935956,
+        "number": 25,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40039604227",
-        "headSha": "142cee33c2d47efb2ecb69e57de50c0f5cfd80ff",
-        "createdAt": "2026-10-23T23:25:36Z",
-        "startedAt": "2026-10-23T23:25:36Z",
-        "updatedAt": "2026-10-23T23:25:59Z",
-        "durationSeconds": 23
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40051935956",
+        "headSha": "0f65d4403ac72ff099e4d4dc505c29c5a029d1f8",
+        "createdAt": "2026-10-24T01:55:06Z",
+        "startedAt": "2026-10-24T01:55:06Z",
+        "updatedAt": "2026-10-24T01:55:31Z",
+        "durationSeconds": 25
       },
       "lastCompletedRun": {
-        "id": 40039604227,
-        "number": 24,
+        "id": 40051935956,
+        "number": 25,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40039604227",
-        "headSha": "142cee33c2d47efb2ecb69e57de50c0f5cfd80ff",
-        "createdAt": "2026-10-23T23:25:36Z",
-        "startedAt": "2026-10-23T23:25:36Z",
-        "updatedAt": "2026-10-23T23:25:59Z",
-        "durationSeconds": 23
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40051935956",
+        "headSha": "0f65d4403ac72ff099e4d4dc505c29c5a029d1f8",
+        "createdAt": "2026-10-24T01:55:06Z",
+        "startedAt": "2026-10-24T01:55:06Z",
+        "updatedAt": "2026-10-24T01:55:31Z",
+        "durationSeconds": 25
       },
-      "lastSuccessAt": "2026-10-23T23:25:59Z",
+      "lastSuccessAt": "2026-10-24T01:55:31Z",
       "successRate": {
-        "window": 17,
-        "decisive": 17,
-        "succeeded": 17,
+        "window": 18,
+        "decisive": 18,
+        "succeeded": 18,
         "rate": 1
       },
       "error": null
