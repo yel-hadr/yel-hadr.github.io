@@ -1,0 +1,1 @@
+const s=e=>{try{const t=Number.parseInt(window.localStorage.getItem(e)??"",10);return Number.isSafeInteger(t)&&t>0?t:0}catch{return 0}},n=(e,t)=>{const r=s(e);if(t<=r)return{best:r,newBest:!1};try{window.localStorage.setItem(e,String(t))}catch{}return{best:t,newBest:!0}};export{s as r,n as s};
