@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T11:07:25.981Z",
+  "generatedAt": "2026-10-29T11:35:51.281Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -14,7 +14,7 @@
   },
   "history": {
     "loaded": true,
-    "samples": 77
+    "samples": 78
   },
   "monitors": [
     {
@@ -27,25 +27,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 59,
+      "latencyMs": 122,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-29T11:07:25.981Z",
+      "checkedAt": "2026-10-29T11:35:51.281Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 43
+          "samples": 44
         },
         "7d": {
           "ratio": 1,
-          "samples": 77
+          "samples": 78
         }
       },
       "latency24h": {
-        "p50": 150,
+        "p50": 149,
         "p95": 282,
-        "samples": 43
+        "samples": 44
       }
     },
     {
@@ -58,25 +58,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 67,
+      "latencyMs": 129,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-29T11:07:25.981Z",
+      "checkedAt": "2026-10-29T11:35:51.281Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 43
+          "samples": 44
         },
         "7d": {
           "ratio": 1,
-          "samples": 77
+          "samples": 78
         }
       },
       "latency24h": {
         "p50": 160,
         "p95": 512,
-        "samples": 43
+        "samples": 44
       }
     },
     {
@@ -89,25 +89,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 142,
+      "latencyMs": 131,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-29T11:07:25.981Z",
+      "checkedAt": "2026-10-29T11:35:51.281Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 43
+          "samples": 44
         },
         "7d": {
           "ratio": 1,
-          "samples": 77
+          "samples": 78
         }
       },
       "latency24h": {
-        "p50": 138,
+        "p50": 137,
         "p95": 310,
-        "samples": 43
+        "samples": 44
       }
     },
     {
@@ -120,25 +120,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 220,
+      "latencyMs": 272,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-29T11:07:25.981Z",
+      "checkedAt": "2026-10-29T11:35:51.281Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 43
+          "samples": 44
         },
         "7d": {
           "ratio": 1,
-          "samples": 77
+          "samples": 78
         }
       },
       "latency24h": {
         "p50": 271,
         "p95": 358,
-        "samples": 43
+        "samples": 44
       }
     }
   ],
@@ -154,40 +154,40 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 40752333153,
-        "number": 14,
-        "title": "Merge pull request #11 from yel-hadr/demos-cub3d-fdf",
+        "id": 40865214441,
+        "number": 19,
+        "title": "Merge pull request #13 from yel-hadr/fps-game-mode",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/40752333153",
-        "headSha": "999af54ca7e98e40aefcfaee1aeaffc0238803c1",
-        "createdAt": "2026-10-28T19:13:22Z",
-        "startedAt": "2026-10-28T19:13:22Z",
-        "updatedAt": "2026-10-28T19:14:15Z",
-        "durationSeconds": 53
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/40865214441",
+        "headSha": "9fbe4371b98dfba22b6218a5d058c24eee9e591c",
+        "createdAt": "2026-10-29T11:24:57Z",
+        "startedAt": "2026-10-29T11:24:57Z",
+        "updatedAt": "2026-10-29T11:25:38Z",
+        "durationSeconds": 41
       },
       "lastCompletedRun": {
-        "id": 40752333153,
-        "number": 14,
-        "title": "Merge pull request #11 from yel-hadr/demos-cub3d-fdf",
+        "id": 40865214441,
+        "number": 19,
+        "title": "Merge pull request #13 from yel-hadr/fps-game-mode",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/40752333153",
-        "headSha": "999af54ca7e98e40aefcfaee1aeaffc0238803c1",
-        "createdAt": "2026-10-28T19:13:22Z",
-        "startedAt": "2026-10-28T19:13:22Z",
-        "updatedAt": "2026-10-28T19:14:15Z",
-        "durationSeconds": 53
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/40865214441",
+        "headSha": "9fbe4371b98dfba22b6218a5d058c24eee9e591c",
+        "createdAt": "2026-10-29T11:24:57Z",
+        "startedAt": "2026-10-29T11:24:57Z",
+        "updatedAt": "2026-10-29T11:25:38Z",
+        "durationSeconds": 41
       },
-      "lastSuccessAt": "2026-10-28T19:14:15Z",
+      "lastSuccessAt": "2026-10-29T11:25:38Z",
       "successRate": {
-        "window": 7,
-        "decisive": 7,
-        "succeeded": 7,
+        "window": 9,
+        "decisive": 9,
+        "succeeded": 9,
         "rate": 1
       },
       "error": null
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 40859221683,
-        "number": 95,
+        "id": 40865301988,
+        "number": 98,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40859221683",
-        "headSha": "695f4e92fec6a0b5d10e74f898a1dc01009aee3f",
-        "createdAt": "2026-10-29T10:38:59Z",
-        "startedAt": "2026-10-29T10:38:59Z",
-        "updatedAt": "2026-10-29T10:39:24Z",
-        "durationSeconds": 25
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40865301988",
+        "headSha": "10c74d2e57ccb1de14ffd0b33ac4f66eca252cd5",
+        "createdAt": "2026-10-29T11:25:37Z",
+        "startedAt": "2026-10-29T11:25:37Z",
+        "updatedAt": "2026-10-29T11:26:04Z",
+        "durationSeconds": 27
       },
       "lastCompletedRun": {
-        "id": 40859221683,
-        "number": 95,
+        "id": 40865301988,
+        "number": 98,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40859221683",
-        "headSha": "695f4e92fec6a0b5d10e74f898a1dc01009aee3f",
-        "createdAt": "2026-10-29T10:38:59Z",
-        "startedAt": "2026-10-29T10:38:59Z",
-        "updatedAt": "2026-10-29T10:39:24Z",
-        "durationSeconds": 25
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/40865301988",
+        "headSha": "10c74d2e57ccb1de14ffd0b33ac4f66eca252cd5",
+        "createdAt": "2026-10-29T11:25:37Z",
+        "startedAt": "2026-10-29T11:25:37Z",
+        "updatedAt": "2026-10-29T11:26:04Z",
+        "durationSeconds": 27
       },
-      "lastSuccessAt": "2026-10-29T10:39:24Z",
+      "lastSuccessAt": "2026-10-29T11:26:04Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
