@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T13:40:11.752Z",
+  "generatedAt": "2026-10-30T14:08:45.313Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -14,7 +14,7 @@
   },
   "history": {
     "loaded": true,
-    "samples": 129
+    "samples": 130
   },
   "monitors": [
     {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 202,
+      "latencyMs": 287,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T13:40:11.752Z",
+      "checkedAt": "2026-10-30T14:08:45.313Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -39,7 +39,7 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 129
+          "samples": 130
         }
       },
       "latency24h": {
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 224,
+      "latencyMs": 293,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T13:40:11.752Z",
+      "checkedAt": "2026-10-30T14:08:45.313Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -70,11 +70,11 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 129
+          "samples": 130
         }
       },
       "latency24h": {
-        "p50": 165,
+        "p50": 166,
         "p95": 429,
         "samples": 52
       }
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 1122,
+      "latencyMs": 275,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T13:40:11.752Z",
+      "checkedAt": "2026-10-30T14:08:45.313Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -101,11 +101,11 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 129
+          "samples": 130
         }
       },
       "latency24h": {
-        "p50": 148,
+        "p50": 150,
         "p95": 296,
         "samples": 52
       }
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 387,
+      "latencyMs": 417,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T13:40:11.752Z",
+      "checkedAt": "2026-10-30T14:08:45.313Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -132,11 +132,11 @@
         },
         "7d": {
           "ratio": 1,
-          "samples": 129
+          "samples": 130
         }
       },
       "latency24h": {
-        "p50": 294,
+        "p50": 297,
         "p95": 445,
         "samples": 52
       }
