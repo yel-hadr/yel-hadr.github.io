@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T16:39:50.372Z",
+  "generatedAt": "2026-10-30T17:08:16.295Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 201,
+      "latencyMs": 304,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T16:39:50.372Z",
+      "checkedAt": "2026-10-30T17:08:16.295Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 207,
+      "latencyMs": 562,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T16:39:50.372Z",
+      "checkedAt": "2026-10-30T17:08:16.295Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -75,7 +75,7 @@
       },
       "latency24h": {
         "p50": 169,
-        "p95": 437,
+        "p95": 466,
         "samples": 53
       }
     },
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 263,
+      "latencyMs": 176,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T16:39:50.372Z",
+      "checkedAt": "2026-10-30T17:08:16.295Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 318,
+      "latencyMs": 443,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-30T16:39:50.372Z",
+      "checkedAt": "2026-10-30T17:08:16.295Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -137,7 +137,7 @@
       },
       "latency24h": {
         "p50": 300,
-        "p95": 417,
+        "p95": 443,
         "samples": 53
       }
     }
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 41090908284,
-        "number": 175,
+        "id": 41091933667,
+        "number": 176,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41090908284",
-        "headSha": "a1f2af8a816893db32e77514eb6efec0b69a083e",
-        "createdAt": "2026-10-30T16:33:02Z",
-        "startedAt": "2026-10-30T16:33:02Z",
-        "updatedAt": "2026-10-30T16:33:49Z",
-        "durationSeconds": 47
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41091933667",
+        "headSha": "55f683abf892595d5b1ad254836d0d66b09c6f39",
+        "createdAt": "2026-10-30T16:39:53Z",
+        "startedAt": "2026-10-30T16:39:53Z",
+        "updatedAt": "2026-10-30T16:40:21Z",
+        "durationSeconds": 28
       },
       "lastCompletedRun": {
-        "id": 41090908284,
-        "number": 175,
+        "id": 41091933667,
+        "number": 176,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41090908284",
-        "headSha": "a1f2af8a816893db32e77514eb6efec0b69a083e",
-        "createdAt": "2026-10-30T16:33:02Z",
-        "startedAt": "2026-10-30T16:33:02Z",
-        "updatedAt": "2026-10-30T16:33:49Z",
-        "durationSeconds": 47
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41091933667",
+        "headSha": "55f683abf892595d5b1ad254836d0d66b09c6f39",
+        "createdAt": "2026-10-30T16:39:53Z",
+        "startedAt": "2026-10-30T16:39:53Z",
+        "updatedAt": "2026-10-30T16:40:21Z",
+        "durationSeconds": 28
       },
-      "lastSuccessAt": "2026-10-30T16:33:49Z",
+      "lastSuccessAt": "2026-10-30T16:40:21Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
