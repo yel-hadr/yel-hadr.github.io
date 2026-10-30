@@ -54,7 +54,7 @@
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"La synchronisation automatique d’Argo CD ne nettoie ni ne corrige rien par défaut","description":"La synchronisation automatique applique les nouveaux commits, mais garde les ressources supprimées de Git et ignore les modifications manuelles du cluster. Les options prune et selfHeal comblent ces deux manques.","url":"https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/argo-cd-automated-sync-prune-self-heal/","inLanguage":"fr","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"Argo CD, GitOps, Kubernetes","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-BV1IzxNQ.css" />
+    <link rel="stylesheet" href="/assets/index-Cn_ML1hf.css" />
     <link rel="stylesheet" href="/assets/blog-D7Hj3la-.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
@@ -93,25 +93,25 @@
         <div class="card-glass mt-10 p-5 sm:p-10">
           <div class="prose-blog">
 <h2 id="le-probleme">Le problème</h2>
-<p>Vous activez la synchronisation automatique d’une Application Argo CD et vous attendez à ce que le cluster reflète Git désormais. Deux choses surprennent pourtant souvent :</p>
+<p>Vous activez la synchronisation automatique d’une Application Argo CD et vous vous attendez à ce que le cluster reflète Git désormais. Deux choses surprennent pourtant souvent :</p>
 <ul>
 <li>Un Deployment supprimé du dépôt continue de tourner dans le cluster.</li>
 <li>Quelqu’un lance <code>kubectl scale</code> ou <code>kubectl edit</code> à la main, et la modification reste.</li>
 </ul>
 <p>Dans les deux cas, l’Application apparaît <strong>OutOfSync</strong>, et Argo CD ne fait rien.</p>
 <h2 id="pourquoi">Pourquoi</h2>
-<p>La synchronisation automatique, seule, réagit aux changements dans Git : quand l’état souhaité à la révision cible change, Argo CD l’applique. Ses valeurs par défaut sont volontairement prudentes :</p>
+<p>La synchronisation automatique, seule, réagit aux changements dans Git : quand l’état souhaité à la révision cible change, Argo CD l’applique. Ses valeurs par défaut sont volontairement prudentes :</p>
 <ul>
 <li><strong>Pas de nettoyage (prune).</strong> Quand une ressource disparaît de Git, la synchronisation automatique ne la supprime pas du cluster. Supprimer des charges de travail automatiquement est jugé trop risqué pour être le comportement par défaut.</li>
 <li><strong>Pas d’autoréparation (self-heal).</strong> Les modifications faites directement sur le cluster ne déclenchent pas de synchronisation automatique. Argo CD signale la dérive, mais la laisse en place.</li>
 </ul>
 <h2 id="la-solution">La solution</h2>
-<p>Activez chaque comportement explicitement dans le <code>syncPolicy</code> de l’Application :</p>
+<p>Activez chaque comportement explicitement dans le <code>syncPolicy</code> de l’Application :</p>
 <ul>
 <li><code>prune: true</code> supprime les ressources que Git ne déclare plus.</li>
 <li><code>selfHeal: true</code> resynchronise dès que l’état réel s’écarte de Git, ce qui annule les modifications manuelles.</li>
 </ul>
-<div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">yaml</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : yaml"><code class="language-yaml">apiVersion: argoproj.io/v1alpha1
+<div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">yaml</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : yaml"><code class="language-yaml">apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: api
@@ -131,12 +131,12 @@ spec:
       selfHeal: true  <span class="tok-comment"># annuler les modifications faites directement dans le cluster</span>
     syncOptions:
       - CreateNamespace=true</code></pre></div>
-<p>Les mêmes réglages en ligne de commande :</p>
-<div class="code-block" data-code="2"><div class="code-head"><span class="code-lang">shell</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 2 : shell"><code class="language-shell">argocd app set api --sync-policy automated --auto-prune --self-heal</code></pre></div>
+<p>Les mêmes réglages en ligne de commande :</p>
+<div class="code-block" data-code="2"><div class="code-head"><span class="code-lang">shell</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 2 : shell"><code class="language-shell">argocd app set api --sync-policy automated --auto-prune --self-heal</code></pre></div>
 <h2 id="les-garde-fous-a-connaitre">Les garde-fous à connaître</h2>
-<p>Avec le nettoyage, une erreur dans Git, comme un mauvais <code>path</code>, supprime désormais des ressources. Argo CD prévoit quelques protections :</p>
+<p>Avec le nettoyage, une erreur dans Git, comme un mauvais <code>path</code>, supprime désormais des ressources. Argo CD prévoit quelques protections :</p>
 <ul>
-<li><code>allowEmpty</code> vaut <code>false</code> par défaut : avec le nettoyage activé, la synchronisation automatique refuse de supprimer toutes les ressources d’une Application parce que sa source ne produit soudain plus rien.</li>
+<li><code>allowEmpty</code> vaut <code>false</code> par défaut : avec le nettoyage activé, la synchronisation automatique refuse de supprimer toutes les ressources d’une Application parce que sa source ne produit soudain plus rien.</li>
 <li>Une ressource peut échapper au nettoyage avec l’annotation <code>argocd.argoproj.io/sync-options: Prune=false</code>.</li>
 <li>L’autoréparation annule aussi les correctifs d’urgence faits avec <code>kubectl</code>. Pendant un incident, faites la modification dans Git, ou mettez d’abord la synchronisation automatique en pause.</li>
 </ul>
@@ -167,7 +167,7 @@ spec:
         </ul>
       </div>
     </footer>
-    <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
-    <script type="module" src="/assets/blog-dd4w2Ak_.js"></script>
+    <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
+    <script type="module" src="/assets/blog-CN5i5D_F.js"></script>
   </body>
 </html>

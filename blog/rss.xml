@@ -42,7 +42,7 @@
       <link>https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/</link>
       <guid isPermaLink="true">https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/</guid>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking.</description>
+      <description>Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It has been generally available since 1.11, which deprecated DynamoDB locking.</description>
       <category>Terraform</category>
       <category>AWS S3</category>
     </item>

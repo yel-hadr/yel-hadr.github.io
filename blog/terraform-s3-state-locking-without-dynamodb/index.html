@@ -22,7 +22,7 @@
   })();
 </script>
     <title>Terraform can lock S3 state without DynamoDB | Youssef El Hadraoui</title>
-<meta name="description" content="Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking." />
+<meta name="description" content="Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It has been generally available since 1.11, which deprecated DynamoDB locking." />
 <link rel="canonical" href="https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="author" content="Youssef El Hadraoui" />
@@ -34,7 +34,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Youssef El Hadraoui" />
 <meta property="og:title" content="Terraform can lock S3 state without DynamoDB | Youssef El Hadraoui" />
-<meta property="og:description" content="Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking." />
+<meta property="og:description" content="Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It has been generally available since 1.11, which deprecated DynamoDB locking." />
 <meta property="og:url" content="https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/" />
 <meta property="og:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -49,11 +49,11 @@
 <meta property="article:tag" content="AWS S3" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Terraform can lock S3 state without DynamoDB | Youssef El Hadraoui" />
-<meta name="twitter:description" content="Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking." />
+<meta name="twitter:description" content="Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It has been generally available since 1.11, which deprecated DynamoDB locking." />
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, Software Engineer in cloud infrastructure and DevOps: his portrait and yel-hadr.github.io" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Terraform can lock S3 state without DynamoDB","description":"Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking.","url":"https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/","mainEntityOfPage":"https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/","inLanguage":"en","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"Terraform, AWS S3","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-BV1IzxNQ.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Terraform can lock S3 state without DynamoDB","description":"Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It has been generally available since 1.11, which deprecated DynamoDB locking.","url":"https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/","mainEntityOfPage":"https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/","inLanguage":"en","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"Terraform, AWS S3","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/blog/#blog"}}</script>
+    <link rel="stylesheet" href="/assets/index-Cn_ML1hf.css" />
     <link rel="stylesheet" href="/assets/blog-D7Hj3la-.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
@@ -83,7 +83,7 @@
         <p><a href="/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All posts</a></p>
         <header class="mt-6">
           <h1 id="post-title" class="text-3xl font-black leading-tight sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">Terraform can lock S3 state without DynamoDB</h1>
-          <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It is generally available since 1.11, which deprecated DynamoDB locking.</p>
+          <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">Since Terraform 1.10, the S3 backend can lock state with a .tflock object next to the state file (use_lockfile = true). It has been generally available since 1.11, which deprecated DynamoDB locking.</p>
           <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
             <p class="post-meta"><span class="sr-only">Published </span><time datetime="2026-10-21">21 October 2026</time><span aria-hidden="true">·</span><span>2 min read</span></p>
             <ul class="flex flex-wrap gap-2" aria-label="Topics"><li class="tag text-info">Terraform</li><li class="tag text-success">AWS S3</li></ul>
@@ -96,7 +96,7 @@
 <h2 id="what-changed">What changed</h2>
 <p>Since Terraform 1.10, the S3 backend can lock state on its own. With <code>use_lockfile = true</code>, Terraform creates a lock object next to the state file, named after the state key with a <code>.tflock</code> suffix, and deletes it when the operation ends.</p>
 <p>It relies on S3 conditional writes: the lock object is only created if it does not already exist. If another run holds the lock, the write fails and Terraform reports that the state is locked, as it did with DynamoDB.</p>
-<p>The feature is generally available since Terraform 1.11, which also deprecated DynamoDB-based locking. No DynamoDB table is needed any more.</p>
+<p>The feature has been generally available since Terraform 1.11, which also deprecated DynamoDB-based locking. No DynamoDB table is needed any more.</p>
 <h2 id="the-fix">The fix</h2>
 <p>Enable the lock file in the backend block:</p>
 <div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">hcl</span></div><pre tabindex="0" role="region" aria-label="Code example 1: hcl"><code class="language-hcl">terraform {
@@ -147,6 +147,6 @@
       </div>
     </footer>
     <script type="application/json" id="blog-strings">{"copy":"Copy","copySr":" code example {n}","copied":"Copied","copyFailed":"Copy failed. The code is selected: copy it with Ctrl+C, ⌘C or your device's Copy command.","themeToLight":"Switch to light mode","themeToDark":"Switch to dark mode"}</script>
-    <script type="module" src="/assets/blog-dd4w2Ak_.js"></script>
+    <script type="module" src="/assets/blog-CN5i5D_F.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <channel>
     <title>Blog – Youssef El Hadraoui (français)</title>
     <link>https://yel-hadr.github.io/fr/blog/</link>
-    <description>De courts articles techniques sur les backends, l’infrastructure cloud et le DevOps : le problème, sa cause, la solution et un extrait réutilisable.</description>
+    <description>De courts articles techniques sur les backends, l’infrastructure cloud et le DevOps : le problème, sa cause, la solution et un extrait réutilisable.</description>
     <language>fr</language>
     <lastBuildDate>Wed, 21 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://yel-hadr.github.io/fr/blog/rss.xml" rel="self" type="application/rss+xml" />
@@ -51,7 +51,7 @@
       <link>https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/</link>
       <guid isPermaLink="true">https://yel-hadr.github.io/fr/blog/loki-json-logs-and-labels/</guid>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Loki n’indexe que les labels : les champs à forte cardinalité, comme un identifiant de requête ou de tenant, vont dans la ligne de log. Avec un objet JSON par ligne, le parseur json de LogQL filtre dessus au moment de la requête.</description>
+      <description>Loki n’indexe que les labels : les champs à forte cardinalité, comme un identifiant de requête ou de tenant, vont dans la ligne de log. Avec un objet JSON par ligne, le parseur json de LogQL filtre dessus au moment de la requête.</description>
       <category>Loki</category>
       <category>LogQL</category>
       <category>Python</category>

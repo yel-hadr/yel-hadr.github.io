@@ -53,7 +53,7 @@
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Terraform verrouille l’état S3 sans DynamoDB","description":"Depuis Terraform 1.10, le backend S3 peut verrouiller l’état avec un objet .tflock placé à côté du fichier d’état (use_lockfile = true). La fonctionnalité est stable depuis la 1.11, qui a rendu obsolète le verrouillage par DynamoDB.","url":"https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/terraform-s3-state-locking-without-dynamodb/","inLanguage":"fr","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"Terraform, AWS S3","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-BV1IzxNQ.css" />
+    <link rel="stylesheet" href="/assets/index-Cn_ML1hf.css" />
     <link rel="stylesheet" href="/assets/blog-D7Hj3la-.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
@@ -92,14 +92,14 @@
         <div class="card-glass mt-10 p-5 sm:p-10">
           <div class="prose-blog">
 <h2 id="le-probleme">Le problème</h2>
-<p>Un état distant dans S3 a besoin d’un verrou, sinon deux <code>terraform apply</code> lancés en même temps peuvent écraser l’état l’un de l’autre. Pendant des années, le backend S3 ne savait verrouiller qu’au moyen d’une table DynamoDB séparée : une ressource de plus à créer, à autoriser et à payer, rien que pour tenir un verrou.</p>
+<p>Un état distant dans S3 a besoin d’un verrou, sinon deux <code>terraform apply</code> lancés en même temps peuvent écraser l’état l’un de l’autre. Pendant des années, le backend S3 ne savait verrouiller qu’au moyen d’une table DynamoDB séparée : une ressource de plus à créer, à autoriser et à payer, rien que pour tenir un verrou.</p>
 <h2 id="ce-qui-a-change">Ce qui a changé</h2>
 <p>Depuis Terraform 1.10, le backend S3 sait verrouiller l’état tout seul. Avec <code>use_lockfile = true</code>, Terraform crée un objet de verrou à côté du fichier d’état, nommé d’après la clé de l’état avec le suffixe <code>.tflock</code>, et le supprime à la fin de l’opération.</p>
-<p>Le mécanisme repose sur les écritures conditionnelles de S3 : l’objet de verrou n’est créé que s’il n’existe pas déjà. Si une autre exécution détient le verrou, l’écriture échoue et Terraform indique que l’état est verrouillé, comme il le faisait avec DynamoDB.</p>
+<p>Le mécanisme repose sur les écritures conditionnelles de S3 : l’objet de verrou n’est créé que s’il n’existe pas déjà. Si une autre exécution détient le verrou, l’écriture échoue et Terraform indique que l’état est verrouillé, comme il le faisait avec DynamoDB.</p>
 <p>La fonctionnalité est stable depuis Terraform 1.11, qui a aussi rendu obsolète le verrouillage par DynamoDB. Plus besoin de table DynamoDB.</p>
 <h2 id="la-solution">La solution</h2>
-<p>Activez le fichier de verrou dans le bloc backend :</p>
-<div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">hcl</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : hcl"><code class="language-hcl">terraform {
+<p>Activez le fichier de verrou dans le bloc backend :</p>
+<div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">hcl</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : hcl"><code class="language-hcl">terraform {
   required_version = &quot;&gt;= 1.11&quot;
 
   backend &quot;s3&quot; {
@@ -110,14 +110,14 @@
     use_lockfile = true <span class="tok-comment"># objet de verrou : prod/network/terraform.tfstate.tflock</span>
   }
 }</code></pre></div>
-<p>Ensuite :</p>
+<p>Ensuite :</p>
 <ol>
-<li><strong>Lancez <code>terraform init -reconfigure</code>.</strong> Terraform l’exige dès que la configuration du backend change ; l’état lui-même ne bouge pas.</li>
+<li><strong>Lancez <code>terraform init -reconfigure</code>.</strong> Terraform l’exige dès que la configuration du backend change ; l’état lui-même ne bouge pas.</li>
 <li><strong>Vérifiez les permissions.</strong> Qui exécute Terraform a besoin de <code>s3:GetObject</code>, <code>s3:PutObject</code> et <code>s3:DeleteObject</code> sur la clé <code>.tflock</code>, en plus de l’accès habituel à l’objet d’état.</li>
-<li><strong>Migrez par étapes si besoin.</strong> Pour faciliter l’abandon de DynamoDB, <code>use_lockfile</code> et <code>dynamodb_table</code> peuvent être définis ensemble ; Terraform prend alors les deux verrous. Retirez <code>dynamodb_table</code> une fois que chaque pipeline et chaque poste utilisent la nouvelle configuration.</li>
+<li><strong>Migrez par étapes si besoin.</strong> Pour faciliter l’abandon de DynamoDB, <code>use_lockfile</code> et <code>dynamodb_table</code> peuvent être définis ensemble ; Terraform prend alors les deux verrous. Retirez <code>dynamodb_table</code> une fois que chaque pipeline et chaque poste utilisent la nouvelle configuration.</li>
 </ol>
 <h2 id="activez-le-versioning-du-bucket">Activez le versioning du bucket</h2>
-<p>Le verrou empêche les écritures simultanées ; il ne protège pas d’une mauvaise écriture. Activez le versioning sur le bucket d’état pour pouvoir restaurer une version antérieure du fichier d’état si un apply le corrompt ou si quelqu’un le supprime par erreur.</p>
+<p>Le verrou empêche les écritures simultanées ; il ne protège pas d’une mauvaise écriture. Activez le versioning sur le bucket d’état pour pouvoir restaurer une version antérieure du fichier d’état si un apply le corrompt ou si quelqu’un le supprime par erreur.</p>
 <p>Si une exécution est interrompue et laisse un verrou orphelin, <code>terraform force-unlock &lt;LOCK_ID&gt;</code> le retire. Assurez-vous d’abord que rien d’autre n’est en cours.</p>
 <h2 id="a-retenir">À retenir</h2>
 <p>Avec Terraform 1.11 ou plus, un bucket S3 versionné et <code>use_lockfile = true</code> suffisent au backend. La table de verrou DynamoDB peut disparaître.</p>
@@ -146,7 +146,7 @@
         </ul>
       </div>
     </footer>
-    <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
-    <script type="module" src="/assets/blog-dd4w2Ak_.js"></script>
+    <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
+    <script type="module" src="/assets/blog-CN5i5D_F.js"></script>
   </body>
 </html>
