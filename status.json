@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-31T00:16:38.088Z",
+  "generatedAt": "2026-10-31T00:59:23.682Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -14,7 +14,7 @@
   },
   "history": {
     "loaded": true,
-    "samples": 148
+    "samples": 149
   },
   "monitors": [
     {
@@ -27,25 +27,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 210,
+      "latencyMs": 144,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-31T00:16:38.088Z",
+      "checkedAt": "2026-10-31T00:59:23.682Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 52
+          "samples": 51
         },
         "7d": {
           "ratio": 1,
-          "samples": 148
+          "samples": 149
         }
       },
       "latency24h": {
         "p50": 160,
         "p95": 327,
-        "samples": 52
+        "samples": 51
       }
     },
     {
@@ -58,25 +58,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 218,
+      "latencyMs": 132,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-31T00:16:38.088Z",
+      "checkedAt": "2026-10-31T00:59:23.682Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 52
+          "samples": 51
         },
         "7d": {
           "ratio": 1,
-          "samples": 148
+          "samples": 149
         }
       },
       "latency24h": {
         "p50": 172,
         "p95": 466,
-        "samples": 52
+        "samples": 51
       }
     },
     {
@@ -89,25 +89,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 216,
+      "latencyMs": 144,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-31T00:16:38.088Z",
+      "checkedAt": "2026-10-31T00:59:23.682Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 52
+          "samples": 51
         },
         "7d": {
           "ratio": 1,
-          "samples": 148
+          "samples": 149
         }
       },
       "latency24h": {
         "p50": 159,
         "p95": 332,
-        "samples": 52
+        "samples": 51
       }
     },
     {
@@ -120,25 +120,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 249,
+      "latencyMs": 210,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-10-31T00:16:38.088Z",
+      "checkedAt": "2026-10-31T00:59:23.682Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 52
+          "samples": 51
         },
         "7d": {
           "ratio": 1,
-          "samples": 148
+          "samples": 149
         }
       },
       "latency24h": {
         "p50": 300,
         "p95": 443,
-        "samples": 52
+        "samples": 51
       }
     }
   ],
@@ -154,36 +154,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 41142745347,
-        "number": 70,
-        "title": "Merge pull request #33 from yel-hadr/premium-ui",
+        "id": 41151728569,
+        "number": 72,
+        "title": "Merge pull request #34 from yel-hadr/premium-ui-tuning",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41142745347",
-        "headSha": "a5db0efd1229056b45cad8a3d6fda9a4e82dad29",
-        "createdAt": "2026-10-30T23:09:37Z",
-        "startedAt": "2026-10-30T23:09:37Z",
-        "updatedAt": "2026-10-30T23:11:04Z",
-        "durationSeconds": 87
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41151728569",
+        "headSha": "c5103f42936c9eba84c12ac3c150b2b39ca7250f",
+        "createdAt": "2026-10-31T00:43:46Z",
+        "startedAt": "2026-10-31T00:43:46Z",
+        "updatedAt": "2026-10-31T00:45:01Z",
+        "durationSeconds": 75
       },
       "lastCompletedRun": {
-        "id": 41142745347,
-        "number": 70,
-        "title": "Merge pull request #33 from yel-hadr/premium-ui",
+        "id": 41151728569,
+        "number": 72,
+        "title": "Merge pull request #34 from yel-hadr/premium-ui-tuning",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41142745347",
-        "headSha": "a5db0efd1229056b45cad8a3d6fda9a4e82dad29",
-        "createdAt": "2026-10-30T23:09:37Z",
-        "startedAt": "2026-10-30T23:09:37Z",
-        "updatedAt": "2026-10-30T23:11:04Z",
-        "durationSeconds": 87
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41151728569",
+        "headSha": "c5103f42936c9eba84c12ac3c150b2b39ca7250f",
+        "createdAt": "2026-10-31T00:43:46Z",
+        "startedAt": "2026-10-31T00:43:46Z",
+        "updatedAt": "2026-10-31T00:45:01Z",
+        "durationSeconds": 75
       },
-      "lastSuccessAt": "2026-10-30T23:11:04Z",
+      "lastSuccessAt": "2026-10-31T00:45:01Z",
       "successRate": {
         "window": 20,
         "decisive": 19,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 41146605527,
-        "number": 193,
+        "id": 41151808085,
+        "number": 195,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41146605527",
-        "headSha": "2ec364895b948d056b79c3164b30e7513b59ee9e",
-        "createdAt": "2026-10-30T23:48:13Z",
-        "startedAt": "2026-10-30T23:48:13Z",
-        "updatedAt": "2026-10-30T23:48:37Z",
-        "durationSeconds": 24
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41151808085",
+        "headSha": "b41820cf04bd3722c3943cad841728eeb859fc5a",
+        "createdAt": "2026-10-31T00:44:37Z",
+        "startedAt": "2026-10-31T00:44:37Z",
+        "updatedAt": "2026-10-31T00:45:06Z",
+        "durationSeconds": 29
       },
       "lastCompletedRun": {
-        "id": 41146605527,
-        "number": 193,
+        "id": 41151808085,
+        "number": 195,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41146605527",
-        "headSha": "2ec364895b948d056b79c3164b30e7513b59ee9e",
-        "createdAt": "2026-10-30T23:48:13Z",
-        "startedAt": "2026-10-30T23:48:13Z",
-        "updatedAt": "2026-10-30T23:48:37Z",
-        "durationSeconds": 24
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41151808085",
+        "headSha": "b41820cf04bd3722c3943cad841728eeb859fc5a",
+        "createdAt": "2026-10-31T00:44:37Z",
+        "startedAt": "2026-10-31T00:44:37Z",
+        "updatedAt": "2026-10-31T00:45:06Z",
+        "durationSeconds": 29
       },
-      "lastSuccessAt": "2026-10-30T23:48:37Z",
+      "lastSuccessAt": "2026-10-31T00:45:06Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
