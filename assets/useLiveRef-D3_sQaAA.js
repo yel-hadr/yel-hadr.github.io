@@ -1,1 +1,0 @@
-import{c as f,r as c}from"./vendor-react-ByatYGGU.js";const i=e=>{const t=f.c(3),o=c.useRef(e);let r,s;return t[0]!==e?(r=()=>{o.current=e},s=[e],t[0]=e,t[1]=r,t[2]=s):(r=t[1],s=t[2]),c.useLayoutEffect(r,s),o};export{i as u};
