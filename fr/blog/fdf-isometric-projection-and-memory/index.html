@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0e14" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script>
+  (function () {
+    var root = document.documentElement;
+    var theme;
+    try {
+      theme = localStorage.getItem('theme');
+    } catch (e) {}
+    // Dark is the site's default look; light only when the visitor picked it
+    if (theme !== 'light') theme = 'dark';
+    root.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content =
+      theme === 'light' ? '#faf7f2' : '#0b0e14';
+    document.querySelector('meta[name="color-scheme"]').content = theme;
+  })();
+</script>
+    <title>Fractales 500×500 : projection isométrique et mémoire</title>
+<meta name="description" content="FdF en C et en WebGL : la projection isométrique d’un fil de fer 2:1, les lignes de Bresenham, et pourquoi dispose() est au WebGL ce que free() est au C." />
+<link rel="canonical" href="https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Youssef El Hadraoui" />
+<link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/" />
+<link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/" />
+<link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/" />
+<link rel="alternate" type="application/rss+xml" title="Blog – Youssef El Hadraoui (français)" href="https://yel-hadr.github.io/fr/blog/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="Blog – Youssef El Hadraoui (English)" href="https://yel-hadr.github.io/blog/rss.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Youssef El Hadraoui" />
+<meta property="og:title" content="Fractales 500×500 : projection isométrique et mémoire" />
+<meta property="og:description" content="FdF en C et en WebGL : la projection isométrique d’un fil de fer 2:1, les lignes de Bresenham, et pourquoi dispose() est au WebGL ce que free() est au C." />
+<meta property="og:url" content="https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/" />
+<meta property="og:image" content="https://yel-hadr.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="article:published_time" content="2026-10-31" />
+<meta property="article:modified_time" content="2026-10-31" />
+<meta property="article:author" content="https://yel-hadr.github.io/" />
+<meta property="article:tag" content="C" />
+<meta property="article:tag" content="MiniLibX" />
+<meta property="article:tag" content="three.js" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fractales 500×500 : projection isométrique et mémoire" />
+<meta name="twitter:description" content="FdF en C et en WebGL : la projection isométrique d’un fil de fer 2:1, les lignes de Bresenham, et pourquoi dispose() est au WebGL ce que free() est au C." />
+<meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
+<meta name="twitter:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fractales 500×500 : projection isométrique et mémoire","description":"Comment mon FdF de 42 projette une carte de hauteurs en fil de fer isométrique 2:1 en C, avec des lignes de Bresenham, et pourquoi changer de carte 500×500 en WebGL exige la rigueur de free().","url":"https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/","inLanguage":"fr","datePublished":"2026-10-31","dateModified":"2026-10-31","keywords":"C, MiniLibX, three.js","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
+    <link rel="stylesheet" href="/assets/index-DeXfr5VH.css" />
+    <link rel="stylesheet" href="/assets/blog-Ko5rV2KU.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <div class="blog-backdrop" aria-hidden="true"></div>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+    <header class="sticky top-0 z-50 border-b border-line bg-background/80 backdrop-blur-md">
+      <div class="blog-container flex items-center justify-between gap-2 py-3">
+        <a href="/" class="flex shrink-0 items-center gap-2 rounded-xl" aria-label="Youssef El Hadraoui, accueil du portfolio">
+          <img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 object-contain" />
+          <span aria-hidden="true" class="hidden text-lg font-bold text-foreground sm:inline">Youssef El Hadraoui</span>
+        </a>
+        <div class="flex items-center gap-1 sm:gap-2">
+          <nav aria-label="Blog">
+            <ul class="flex items-center gap-1">
+              <li><a href="/fr/blog/" class="header-link">Blog</a></li>
+              <li><a href="/fr/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+            </ul>
+          </nav>
+          <div role="group" aria-label="Langue" class="lang-switch"><a href="/blog/fdf-isometric-projection-and-memory/" lang="en" hreflang="en" data-lang-link="en" class="lang-option"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/fdf-isometric-projection-and-memory/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option is-active" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
+          <button type="button" class="icon-btn" data-theme-toggle hidden aria-label="Passer en mode clair" title="Passer en mode clair"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="theme-icon-sun h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="theme-icon-moon h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1" class="blog-container flex-1 py-12 sm:py-16">
+      <article class="mx-auto max-w-3xl" aria-labelledby="post-title">
+        <p><a href="/fr/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Tous les articles</a></p>
+        <header class="mt-6">
+          <h1 id="post-title" class="text-3xl font-black leading-tight sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">Fractales 500×500 : projection isométrique et mémoire</h1>
+          <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">Comment mon FdF de 42 projette une carte de hauteurs en fil de fer isométrique 2:1 en C, avec des lignes de Bresenham, et pourquoi changer de carte 500×500 en WebGL exige la rigueur de free().</p>
+          <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <p class="post-meta"><span class="sr-only">Publié le </span><time datetime="2026-10-31">31 octobre 2026</time><span aria-hidden="true">·</span><span>12 min de lecture</span></p>
+            <ul class="flex flex-wrap gap-2" aria-label="Sujets"><li class="tag text-info">C</li><li class="tag text-success">MiniLibX</li><li class="tag text-primary-400">three.js</li></ul>
+          </div>
+        </header>
+        <div class="card-glass mt-10 p-5 sm:p-10">
+          <div class="prose-blog">
+<h2 id="le-sujet">Le sujet</h2>
+<p>FdF (« fil de fer ») est le premier projet graphique de 42. Le sujet demande « une représentation simple en fil de fer d’un paysage 3D, en reliant des points (x, y, z) par des segments », lue dans un fichier <code>.fdf</code>, et pose la seule contrainte forte sur l’image : le programme doit représenter le modèle en projection isométrique.</p>
+<p>Les règles autour façonnent le code autant que les maths : les images de la MiniLibX sont obligatoires, Échap et le bouton de fermeture doivent quitter proprement, les variables globales sont interdites et, comme dans tout projet de 42, toute la mémoire allouée sur le tas doit être libérée : les fuites de mémoire ne sont pas tolérées.</p>
+<p>Cet article reprend la projection, le tracé des lignes et les règles de mémoire de ma version en C (<a href="https://github.com/yel-hadr/my_fdf_42">my_fdf_42 sur GitHub</a>), puis la visionneuse en direct de ce site, qui dessine en WebGL six cartes de test du dépôt, dont deux fractales de 500 × 500.</p>
+<figure class="post-figure"><img src="/blog-media/fdf-isometric-projection-and-memory/julia-file-colors.webp" width="862" height="694" alt="julia.fdf dans la visionneuse avec les couleurs du fichier : un plan rouge sombre et des pics blancs en forme d’ensemble de Julia, avec un relevé de 250 000 sommets et 499 000 arêtes" loading="lazy" decoding="async" /><figcaption>julia.fdf, dessinée avec les couleurs écrites dans le fichier : 250 000 points reliés par 499 000 arêtes.</figcaption></figure>
+<p><a href="/?demo=fdf">Lancer la visionneuse FdF en direct</a></p>
+<h2 id="le-fichier-est-la-grille">Le fichier est la grille</h2>
+<p>Un fichier <code>.fdf</code> est une carte de hauteurs. Chaque ligne est une rangée (y), chaque nombre une colonne (x), et le nombre lui-même est l’altitude (z). Un point peut porter sa propre couleur après une virgule :</p>
+<div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">text</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : text"><code class="language-text">0  0  0  0  0
+0 10 10 10  0
+0 10,0xFF0000 10  0  0</code></pre></div>
+<p>Le sujet précise que le but du projet n’est pas d’analyser des cartes, et laisse le programme supposer un fichier bien formé. Le mien lit tout de même chaque fichier deux fois. La première passe compte les rangées, vérifie qu’elles ont toutes le même nombre de colonnes (sinon elle s’arrête sur <code>MAP_ERROR</code>) et trouve l’altitude la plus basse et la plus haute. La seconde lit les valeurs et les couleurs. Une couleur, ce sont les chiffres hexadécimaux après <code>0x</code>, et un point sans couleur est blanc (<code>0xFFFFFF</code>).</p>
+<p>La visionneuse web fait ce travail à la construction du site. Un script Node transforme chaque <code>.fdf</code> en JSON. Dans ces cartes, les couleurs suivent l’altitude : elles sont donc stockées comme une table de l’altitude vers la couleur, et le script s’arrête sur un fichier qui donnerait deux couleurs à une même altitude plutôt que d’en perdre une. Les deux cartes de 500 × 500 ne sont téléchargées que si on les choisit, et leurs altitudes vont dans un <code>Int16Array</code> : 2 octets par point au lieu des 8 des nombres d’un tableau ordinaire.</p>
+<div class="code-block" data-code="2"><div class="code-head"><span class="code-lang">js</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 2 : js"><code class="language-js"><span class="tok-keyword">const</span> width = Math.min(...rows.map((row) =&gt; row.length));
+<span class="tok-comment">// 16-bit: every altitude in these maps fits, in a quarter of a plain array&#39;s memory</span>
+<span class="tok-keyword">const</span> z = Int16Array.from(rows.flatMap((row) =&gt; row.slice(<span class="tok-number">0</span>, width)));
+<span class="tok-keyword">let</span> min = Infinity;
+<span class="tok-keyword">let</span> max = -Infinity;
+z.forEach((value) =&gt; {
+  <span class="tok-keyword">if</span> (value &lt; min) min = value;
+  <span class="tok-keyword">if</span> (value &gt; max) max = value;
+});</code></pre></div>
+<p>La boucle a une raison d’être : <code>Math.min(...z)</code> passerait un quart de million d’arguments et ferait déborder la pile d’appels.</p>
+<h2 id="la-projection-sous-forme-de-matrice">La projection, sous forme de matrice</h2>
+<p>Une vue isométrique regarde la grille depuis un coin : on la tourne de 45° dans son plan, puis on l’incline vers l’observateur. L’isométrie exacte incline jusqu’à ce que les trois axes soient raccourcis de la même façon, une élévation de arctan(1/√2) ≈ 35,26°, qui réduit la profondeur du sol à sin(35,26°) = 1/√3 ≈ 0,577.</p>
+<p>Ma version en C fait comme la plupart des FdF et du pixel art : elle tourne la grille de 45° et divise la verticale par deux. Chaque ligne de la grille monte alors d’un pixel pour deux en largeur, et les lignes avancent en marches régulières sur la grille de pixels. C’est l’isométrie « 2:1 », une élévation de arcsin(1/2) = 30°. Voici la fonction, avec ses angles par défaut de −45° :</p>
+<div class="code-block" data-code="3"><div class="code-head"><span class="code-lang">c</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 3 : c"><code class="language-c">point.x = len_win.zoom * ((cos((len_win.angel_x * <span class="tok-number">3.14</span>) / <span class="tok-number">180</span>) * (<span class="tok-keyword">double</span>)matrix.x)
+		+ (-sin((len_win.angel_y * <span class="tok-number">3.14</span>) / <span class="tok-number">180</span>) * ((<span class="tok-keyword">double</span>)matrix.y)));
+point.y = len_win.zoom * ((sin((len_win.angel_x * <span class="tok-number">3.14</span>) / <span class="tok-number">180</span>) * ((<span class="tok-keyword">double</span>)matrix.x))
+		+ (cos((len_win.angel_y * <span class="tok-number">3.14</span>) / <span class="tok-number">180</span>) * ((<span class="tok-keyword">double</span>)matrix.y)))
+		+ (-((len_win.depth) * (<span class="tok-keyword">double</span>)matrix.z));
+point.x += len_win.start_x;
+point.y /= <span class="tok-number">2</span>;</code></pre></div>
+<p>Avec les deux angles à −45°, un zoom s et une profondeur d, c’est une seule matrice 2 × 3 appliquée à chaque point :</p>
+<div class="code-block" data-code="4"><div class="code-head"><span class="code-lang">text</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 4 : text"><code class="language-text">[ x&#39; ]   [  s/√2    s/√2     0   ] [ x ]
+[ y&#39; ] = [ -s/2√2   s/2√2   -d/2 ] [ y ]
+                                   [ z ]</code></pre></div>
+<p>La première ligne place un point en largeur selon x + y, sa diagonale. La seconde le place en hauteur selon y − x, divisé par deux, et le soulève de son altitude. Deux détails, en toute honnêteté : les degrés sont convertis avec 3,14 plutôt que π, et les angles sont des entiers, donc la rotation se fait par degrés entiers.</p>
+<p>La fenêtre est elle aussi dimensionnée par la projection. Le programme projette trois coins de la grille, puis réduit le zoom (et la profondeur avec lui) jusqu’à ce que l’image tienne dans 1920 × 1080 avec une marge, et ouvre une fenêtre juste assez grande.</p>
+<p>La visionneuse WebGL ne projette rien à la main. Elle place une caméra orthographique dans la même direction, 45° autour et 30° de hauteur, et le GPU multiplie chaque sommet par les matrices de projection et de vue :</p>
+<div class="code-block" data-code="5"><div class="code-head"><span class="code-lang">js</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 5 : js"><code class="language-js"><span class="tok-keyword">const</span> ISO_AZIMUTH = Math.PI / <span class="tok-number">4</span>;
+<span class="tok-keyword">const</span> ISO_ELEVATION = Math.PI / <span class="tok-number">6</span>; <span class="tok-comment">// asin(1/2): the 2:1 look of halving y</span>
+<span class="tok-keyword">const</span> DIRECTION = <span class="tok-keyword">new</span> Vector3(
+  Math.cos(ISO_ELEVATION) * Math.sin(ISO_AZIMUTH),
+  Math.sin(ISO_ELEVATION),
+  Math.cos(ISO_ELEVATION) * Math.cos(ISO_AZIMUTH)
+);</code></pre></div>
+<p>Une caméra orthographique garde les lignes parallèles parallèles, ce qui fait de l’isométrie une projection parallèle. Cela compte pour la liste des bonus plus bas.</p>
+<h2 id="tracer-les-lignes">Tracer les lignes</h2>
+<p>Chaque point est relié à ses voisins de droite et du dessous : une grille L × H a donc (L − 1) × H + L × (H − 1) arêtes, soit 499 000 pour une carte de 500 × 500.</p>
+<p>En C, chaque arête est tracée avec l’algorithme de Bresenham. Il avance d’un bout à l’autre pixel par pixel, en choisissant entre un pas droit et un pas en diagonale grâce à un terme d’erreur entier : la boucle ne fait que des additions et des comparaisons d’entiers. La couleur de chaque pixel est mélangée entre celles des deux extrémités, canal par canal (<code>ft_gradient</code>) : une ligne d’un point bas à un point haut passe d’une couleur à l’autre.</p>
+<p>En WebGL, ces arêtes deviennent un tampon d’indices : deux indices par arête dans un seul tableau de points, dessinés en <code>LineSegments</code>. Les indices au-delà de 65 535 demandent 32 bits, et ces cartes comptent 250 000 points. Le GPU mélange les couleurs le long de chaque ligne, le travail que <code>ft_gradient</code> faisait à la main :</p>
+<div class="code-block" data-code="6"><div class="code-head"><span class="code-lang">js</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 6 : js"><code class="language-js"><span class="tok-keyword">const</span> index = <span class="tok-keyword">new</span> (width * height &gt; <span class="tok-number">65535</span> ? Uint32Array : Uint16Array)(edgesOf(map) * <span class="tok-number">2</span>);
+<span class="tok-keyword">let</span> n = <span class="tok-number">0</span>;
+<span class="tok-keyword">for</span> (<span class="tok-keyword">let</span> row = <span class="tok-number">0</span>; row &lt; height; row += <span class="tok-number">1</span>) {
+  <span class="tok-keyword">for</span> (<span class="tok-keyword">let</span> col = <span class="tok-number">0</span>; col &lt; width; col += <span class="tok-number">1</span>) {
+    <span class="tok-keyword">const</span> i = row * width + col;
+    <span class="tok-keyword">if</span> (col &lt; width - <span class="tok-number">1</span>) {
+      index[n++] = i;
+      index[n++] = i + <span class="tok-number">1</span>;
+    }
+    <span class="tok-keyword">if</span> (row &lt; height - <span class="tok-number">1</span>) {
+      index[n++] = i;
+      index[n++] = i + width;
+    }
+  }
+}
+geometry.setIndex(<span class="tok-keyword">new</span> BufferAttribute(index, <span class="tok-number">1</span>));</code></pre></div>
+<h2 id="les-bonus">Les bonus</h2>
+<p>Le sujet propose cinq bonus : une projection supplémentaire (parallèle ou conique, par exemple), le zoom, la translation, la rotation, et un bonus au choix.</p>
+<p>Mon build bonus en C (<code>exut_fdf_bonus</code>) a des touches pour le zoom, la translation (10 pixels par appui), la rotation (5° par appui, les deux angles ensemble, donc la grille tourne autour de son axe vertical) et la profondeur, l’échelle des altitudes, plus deux angles prédéfinis. Il n’a pas de seconde projection : les deux préréglages sont d’autres angles de la même.</p>
+<p>La visionneuse web garde ces commandes et ajoute ce que la version en C n’avait pas :</p>
+<ul>
+<li><strong>La projection supplémentaire.</strong> L’isométrique, par défaut, est orthographique. La perspective est une projection conique : une caméra perspective de 40°, où les lignes parallèles se rejoignent en des points de fuite. P passe de l’une à l’autre, et chacune repart de la vue par défaut de la carte affichée.</li>
+<li><strong>Le zoom.</strong> Avec la caméra orthographique, le zoom agrandit la projection (<code>camera.zoom</code>). Avec la caméra perspective, il avance la caméra sur sa ligne de visée, dans des limites ajustées à la carte.</li>
+<li><strong>La translation.</strong> Les flèches déplacent la caméra et sa cible selon ses propres axes droite et haut, les deux premières colonnes de sa matrice : « haut » est toujours le haut de l’écran.</li>
+<li><strong>La rotation.</strong> R tourne le modèle de 15° autour de son axe vertical, la rotation de l’original, amortie avec <code>MathUtils.damp</code> (immédiate quand les animations sont réduites). Un glisser avec le bouton droit tourne librement grâce aux <code>OrbitControls</code> de drei.</li>
+<li><strong>En plus.</strong> Un curseur d’échelle des altitudes qui étire le modèle en y au lieu de réécrire 250 000 hauteurs, des palettes par altitude ou issues du fichier, et les six cartes.</li>
+</ul>
+<figure class="post-figure"><img src="/blog-media/fdf-isometric-projection-and-memory/mars-iso-vs-perspective.webp" width="1200" height="480" alt="mars.fdf côte à côte : la vue isométrique à gauche, où les bords de la grille restent parallèles, et la vue en perspective à droite, où ils convergent" loading="lazy" decoding="async" /><figcaption>mars.fdf dans les deux projections : isométrique (parallèle) à gauche, perspective (conique) à droite.</figcaption></figure>
+<h2 id="la-memoire-free-en-c-dispose-en-webgl">La mémoire : free() en C, dispose() en WebGL</h2>
+<p>En C, la règle se voit au moment de redessiner. Chaque appui sur une touche détruit l’image de la fenêtre avant d’en créer une nouvelle ; sans cette destruction, chaque appui ferait fuir une image entière de la taille de la fenêtre :</p>
+<div class="code-block" data-code="7"><div class="code-head"><span class="code-lang">c</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 7 : c"><code class="language-c">mlx_destroy_image(fdf-&gt;mlx.mlx, fdf-&gt;img.img);
+fdf-&gt;img.img = mlx_new_image(fdf-&gt;mlx.mlx, fdf-&gt;win_len-&gt;len_win.x,
+		fdf-&gt;win_len-&gt;len_win.y);</code></pre></div>
+<p>Échap appelle <code>exit(0)</code> : le processus se termine, et le système d’exploitation reprend les rangées de la carte et la fenêtre. Un second regard sur le code montre que les lignes renvoyées par <code>get_next_line</code> lors de la seconde passe ne sont jamais libérées. C’est sans conséquence dans un processus qui se termine juste après, et c’est une fuite continue dans tout ce qui dure. Un onglet de navigateur, lui, ne se termine pas.</p>
+<p>Voici ce que garde une carte de 500 × 500 une fois dessinée :</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tableau 1"><table>
+<thead>
+<tr>
+<th>Tampon</th>
+<th>Taille</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Positions : 250 000 points × 3 flottants × 4 octets</td>
+<td>3 000 000 octets</td>
+</tr>
+<tr>
+<td>Couleurs : 250 000 points × 3 octets (normalisés)</td>
+<td>750 000 octets</td>
+</tr>
+<tr>
+<td>Indices : 499 000 arêtes × 2 × 4 octets</td>
+<td>3 992 000 octets</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>environ 7,7 Mo</strong></td>
+</tr>
+</tbody></table>
+</div>
+<p>three.js envoie ces tableaux dans des tampons GPU la première fois que la géométrie est dessinée, et le moteur de rendu garde sa propre référence à la géométrie et à ses tampons. Lâcher la dernière référence dans mon code ne libère ni l’une ni les autres : seul <code>geometry.dispose()</code> les supprime. Aller et venir dix fois entre les cartes de Julia et de Mandelbrot sans lui laisserait environ 77 Mo de mémoire GPU derrière soi, jusqu’à la disparition du contexte lui-même.</p>
+<p>React Three Fiber trace une frontière entre ce qu’il possède et ce que je possède, un peu comme la pile et le tas en C. Un objet écrit en JSX, comme <code>&lt;planeGeometry /&gt;</code>, est créé et libéré par R3F avec son composant. Un objet créé avec <code>new</code> est à moi : son composant le libère quand il est démonté. Version condensée de la visionneuse :</p>
+<div class="code-block" data-code="8"><div class="code-head"><span class="code-lang">jsx</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 8 : jsx"><code class="language-jsx"><span class="tok-keyword">const</span> Model = ({ map, materials, ...props }) =&gt; {
+  <span class="tok-comment">// Not created in JSX, so R3F does not own it: freed on unmount below</span>
+  <span class="tok-keyword">const</span> geometry = useMemo(() =&gt; buildGeometry(map), [map]);
+  useEffect(() =&gt; () =&gt; geometry.dispose(), [geometry]);
+  <span class="tok-comment">// ...</span>
+};
+
+<span class="tok-keyword">const</span> Wireframe = ({ map, ...props }) =&gt; {
+  <span class="tok-comment">// Made once per canvas and shared by every map, so a switch compiles no shaders</span>
+  <span class="tok-keyword">const</span> materials = useMemo(
+    () =&gt; ({ lines: <span class="tok-keyword">new</span> LineBasicMaterial({ vertexColors: <span class="tok-keyword">true</span> }) <span class="tok-comment">/* ... */</span> }),
+    []
+  );
+  useEffect(() =&gt; () =&gt; materials.lines.dispose(), [materials]);
+  <span class="tok-keyword">return</span> &lt;Model key={map.id} map={map} materials={materials} {...props} /&gt;;
+};</code></pre></div>
+<p><code>key={map.id}</code> donne à chaque carte son propre <code>Model</code>. Choisir une autre carte démonte l’ancien, le nettoyage de son effet s’exécute, et sa géométrie est libérée : un <code>free()</code> pour chaque <code>malloc()</code>, lié à une durée de vie au lieu d’être écrit à la main à chaque sortie. Les matériaux survivent exprès aux cartes : changer de carte ne recompile jamais de shader.</p>
+<p>La règle sur les variables globales a aussi son équivalent. Le programme en C passe une seule structure <code>t_myfdf</code> à chaque gestionnaire de la MiniLibX au lieu de garder l’état dans des globales. Dans la visionneuse, tout ce qui occupe de la mémoire GPU appartient à un composant et disparaît avec lui. La portée du module ne contient que des constantes, quelques vecteurs de travail réutilisés, et un cache des données de cartes téléchargées, gardé exprès pour que choisir à nouveau une carte ne la retélécharge pas. Aucun d’eux n’occupe de mémoire GPU.</p>
+<p>Le contexte WebGL suit la même discipline un niveau au-dessus. Un navigateur n’autorise que quelques contextes actifs et abandonne le plus ancien au-delà. La page n’en garde qu’un : ouvrir la visionneuse démonte d’abord le canvas 3D de la page, et la fermer appelle aussitôt <code>gl.forceContextLoss()</code>, ce que le WebGL a de plus proche de <code>mlx_destroy_window</code>.</p>
+<h2 id="les-cartes">Les cartes</h2>
+<p>La visionneuse propose six cartes de test du dépôt :</p>
+<ul>
+<li><code>42</code>, l’exemple du sujet, dessiné immédiatement ;</li>
+<li><code>julia</code> et <code>elem-fract</code>, des ensembles de Julia et de Mandelbrot de 500 × 500, avec leurs couleurs dans le fichier ;</li>
+<li><code>t1</code>, un paysage de 200 × 200 ;</li>
+<li><code>mars</code>, un terrain de 200 × 116 ;</li>
+<li><code>pyra</code>, un pic en gradins à côté de son creux en miroir.</li>
+</ul>
+<p>Chaque carte a sa propre échelle d’altitude, pour que son relief se lise à une taille raisonnable, là où l’original règle l’échelle au clavier. Le relevé affiche la ligne de commande du build bonus pour la carte montrée : le lien avec le programme en C reste visible.</p>
+<figure class="post-figure"><img src="/blog-media/fdf-isometric-projection-and-memory/julia-altitude.webp" width="862" height="694" alt="julia.fdf avec la palette par altitude : le même ensemble de Julia, du bleu aux points les plus bas à l’orange aux plus hauts" loading="lazy" decoding="async" /><figcaption>La même carte avec la palette par altitude : le bleu, le cyan-vert et l’orange du site, du plus bas au plus haut.</figcaption></figure>
+<h2 id="a-retenir">À retenir</h2>
+<ul>
+<li>L’isométrie est une matrice de projection. La version 2:1 courante (rotation de 45°, hauteur divisée par deux, une vue à 30°) est choisie pour le rendu des lignes sur les pixels, pas pour l’exactitude géométrique.</li>
+<li>Bresenham trace une ligne avec des additions d’entiers seulement. Sur le GPU, un tampon d’indices d’arêtes fait le même travail pour un demi-million de lignes à la fois.</li>
+<li><code>free()</code> et <code>dispose()</code> répondent à la même règle. En C, la fin du processus masque une fuite ; dans un onglet qui reste ouvert, rien ne la masque.</li>
+</ul>
+
+          </div>
+        </div>
+      </article>
+      <nav aria-label="Autres articles" class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
+          <a href="/fr/blog/cub3d-raycasting-from-c-to-webgl/" rel="prev" class="card-glass post-nav-link">
+            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Article précédent</span>
+            <span class="font-semibold text-foreground">Du C au WebGL : le raycasting DDA de Wolfenstein 3D</span>
+          </a>
+          <a href="/fr/blog/pgbouncer-transaction-pooling-django-tenants/" rel="next" class="card-glass post-nav-link sm:text-right">
+            <span class="post-nav-label sm:justify-end">Article suivant<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="font-semibold text-foreground">Le pooling par transaction de PgBouncer casse django-tenants</span>
+          </a>
+      </nav>
+    </main>
+    <footer class="border-t border-line bg-background/80 backdrop-blur-md">
+      <div class="blog-container flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-8 text-sm text-foreground-muted">
+        <p>© 2026 Youssef El Hadraoui</p>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          <li><a href="/" class="footer-link">Portfolio</a></li>
+          <li><a href="/fr/blog/" class="footer-link">Tous les articles</a></li>
+          <li><a href="/fr/blog/rss.xml" class="footer-link" type="application/rss+xml">RSS</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
+    <script type="module" src="/assets/blog-eiRf7kz0.js"></script>
+  </body>
+</html>

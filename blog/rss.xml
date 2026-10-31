@@ -3,10 +3,30 @@
   <channel>
     <title>Blog – Youssef El Hadraoui (English)</title>
     <link>https://yel-hadr.github.io/blog/</link>
-    <description>Short technical posts on backends, cloud infrastructure and DevOps: the problem, why it happens, the fix and a snippet to reuse.</description>
+    <description>Technical posts on backends, cloud infrastructure, DevOps and graphics programming: the problem, why it happens, the fix and code to reuse.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://yel-hadr.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From C to WebGL: Recreating Wolfenstein 3D’s DDA Raycasting</title>
+      <link>https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/</guid>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <description>How my 42 cub3D casts one ray per screen column through a grid in C, parses and validates .cub maps, and how the same ideas carry a React Three Fiber game on this site.</description>
+      <category>C</category>
+      <category>MLX42</category>
+      <category>React Three Fiber</category>
+    </item>
+    <item>
+      <title>Rendering 500×500 Fractals: Isometric Math and Memory</title>
+      <link>https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/</link>
+      <guid isPermaLink="true">https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/</guid>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <description>How my 42 FdF projects a heightmap to a 2:1 isometric wireframe in C with Bresenham lines, and why switching 500×500 maps in WebGL takes the same discipline as free().</description>
+      <category>C</category>
+      <category>MiniLibX</category>
+      <category>three.js</category>
+    </item>
     <item>
       <title>PgBouncer transaction pooling breaks django-tenants</title>
       <link>https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/</link>

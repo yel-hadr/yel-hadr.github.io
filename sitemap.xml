@@ -10,17 +10,45 @@
   </url>
   <url>
     <loc>https://yel-hadr.github.io/blog/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/" />
   </url>
   <url>
     <loc>https://yel-hadr.github.io/fr/blog/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/" />
+  </url>
+  <url>
+    <loc>https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yel-hadr.github.io/fr/blog/fdf-isometric-projection-and-memory/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/" />
   </url>
   <url>
     <loc>https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/</loc>
