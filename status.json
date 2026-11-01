@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-01T08:10:02.912Z",
+  "generatedAt": "2026-11-01T14:13:59.841Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,15 +27,15 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 167,
+      "latencyMs": 139,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-01T08:10:02.912Z",
+      "checkedAt": "2026-11-01T14:13:59.841Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 54
+          "samples": 41
         },
         "7d": {
           "ratio": 1,
@@ -43,9 +43,9 @@
         }
       },
       "latency24h": {
-        "p50": 156,
-        "p95": 298,
-        "samples": 54
+        "p50": 149,
+        "p95": 225,
+        "samples": 41
       }
     },
     {
@@ -58,15 +58,15 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 187,
+      "latencyMs": 128,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-01T08:10:02.912Z",
+      "checkedAt": "2026-11-01T14:13:59.841Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 54
+          "samples": 41
         },
         "7d": {
           "ratio": 1,
@@ -74,9 +74,9 @@
         }
       },
       "latency24h": {
-        "p50": 172,
+        "p50": 170,
         "p95": 364,
-        "samples": 54
+        "samples": 41
       }
     },
     {
@@ -89,15 +89,15 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 157,
+      "latencyMs": 168,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-01T08:10:02.912Z",
+      "checkedAt": "2026-11-01T14:13:59.841Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 54
+          "samples": 41
         },
         "7d": {
           "ratio": 1,
@@ -105,9 +105,9 @@
         }
       },
       "latency24h": {
-        "p50": 151,
+        "p50": 157,
         "p95": 378,
-        "samples": 54
+        "samples": 41
       }
     },
     {
@@ -120,15 +120,15 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 436,
+      "latencyMs": 340,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-01T08:10:02.912Z",
+      "checkedAt": "2026-11-01T14:13:59.841Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 54
+          "samples": 41
         },
         "7d": {
           "ratio": 1,
@@ -136,9 +136,9 @@
         }
       },
       "latency24h": {
-        "p50": 310,
-        "p95": 492,
-        "samples": 54
+        "p50": 306,
+        "p95": 484,
+        "samples": 41
       }
     }
   ],
@@ -154,36 +154,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 41240453119,
-        "number": 97,
-        "title": "Merge pull request #45 from yel-hadr/weapon-models",
+        "id": 41310995585,
+        "number": 109,
+        "title": "Merge pull request #51 from yel-hadr/game-audit-pr6",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41240453119",
-        "headSha": "2b1712cde3ffef3d20981442221367b2ef9b6b92",
-        "createdAt": "2026-10-31T20:46:20Z",
-        "startedAt": "2026-10-31T20:46:20Z",
-        "updatedAt": "2026-10-31T20:47:53Z",
-        "durationSeconds": 93
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41310995585",
+        "headSha": "1ef1bc194104ea64ecc8363c5f34b3a7b1d57c74",
+        "createdAt": "2026-11-01T13:23:04Z",
+        "startedAt": "2026-11-01T13:23:04Z",
+        "updatedAt": "2026-11-01T13:24:17Z",
+        "durationSeconds": 73
       },
       "lastCompletedRun": {
-        "id": 41240453119,
-        "number": 97,
-        "title": "Merge pull request #45 from yel-hadr/weapon-models",
+        "id": 41310995585,
+        "number": 109,
+        "title": "Merge pull request #51 from yel-hadr/game-audit-pr6",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41240453119",
-        "headSha": "2b1712cde3ffef3d20981442221367b2ef9b6b92",
-        "createdAt": "2026-10-31T20:46:20Z",
-        "startedAt": "2026-10-31T20:46:20Z",
-        "updatedAt": "2026-10-31T20:47:53Z",
-        "durationSeconds": 93
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41310995585",
+        "headSha": "1ef1bc194104ea64ecc8363c5f34b3a7b1d57c74",
+        "createdAt": "2026-11-01T13:23:04Z",
+        "startedAt": "2026-11-01T13:23:04Z",
+        "updatedAt": "2026-11-01T13:24:17Z",
+        "durationSeconds": 73
       },
-      "lastSuccessAt": "2026-10-31T20:47:53Z",
+      "lastSuccessAt": "2026-11-01T13:24:17Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 41285805926,
-        "number": 274,
+        "id": 41311053801,
+        "number": 281,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41285805926",
-        "headSha": "e813867117d67eb94824e995e26fc6ebbfa03f10",
-        "createdAt": "2026-11-01T07:41:41Z",
-        "startedAt": "2026-11-01T07:41:41Z",
-        "updatedAt": "2026-11-01T07:42:10Z",
-        "durationSeconds": 29
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41311053801",
+        "headSha": "46ee9c3fce782b6b369e4fb0fe676f191bb7d9db",
+        "createdAt": "2026-11-01T13:23:49Z",
+        "startedAt": "2026-11-01T13:23:49Z",
+        "updatedAt": "2026-11-01T13:24:16Z",
+        "durationSeconds": 27
       },
       "lastCompletedRun": {
-        "id": 41285805926,
-        "number": 274,
+        "id": 41311053801,
+        "number": 281,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41285805926",
-        "headSha": "e813867117d67eb94824e995e26fc6ebbfa03f10",
-        "createdAt": "2026-11-01T07:41:41Z",
-        "startedAt": "2026-11-01T07:41:41Z",
-        "updatedAt": "2026-11-01T07:42:10Z",
-        "durationSeconds": 29
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/41311053801",
+        "headSha": "46ee9c3fce782b6b369e4fb0fe676f191bb7d9db",
+        "createdAt": "2026-11-01T13:23:49Z",
+        "startedAt": "2026-11-01T13:23:49Z",
+        "updatedAt": "2026-11-01T13:24:16Z",
+        "durationSeconds": 27
       },
-      "lastSuccessAt": "2026-11-01T07:42:10Z",
+      "lastSuccessAt": "2026-11-01T13:24:16Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
