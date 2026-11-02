@@ -55,8 +55,9 @@
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, Software Engineer in cloud infrastructure and DevOps: his portrait and yel-hadr.github.io" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Loki wants JSON log lines and few labels","description":"Loki indexes labels only, so high-cardinality fields such as request or tenant IDs belong in the log line. With one JSON object per line, LogQL's json parser filters on them at query time.","url":"https://yel-hadr.github.io/blog/loki-json-logs-and-labels/","mainEntityOfPage":"https://yel-hadr.github.io/blog/loki-json-logs-and-labels/","inLanguage":"en","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"Loki, LogQL, Python","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-8DjZW16R.css" />
-    <link rel="stylesheet" href="/assets/blog-Ko5rV2KU.css" />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/geist-latin-wght-normal-BgDaEnEv.woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/index-CgJDgUD7.css" />
+    <link rel="stylesheet" href="/assets/blog-Do_QcgqC.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
   <body class="flex min-h-screen flex-col">
@@ -72,7 +73,7 @@
           <nav aria-label="Blog">
             <ul class="flex items-center gap-1">
               <li><a href="/blog/" class="header-link">Blog</a></li>
-              <li><a href="/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+              <li><a href="/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span class="sr-only xs:not-sr-only">RSS</span></a></li>
             </ul>
           </nav>
           <div role="group" aria-label="Language" class="lang-switch"><a href="/blog/loki-json-logs-and-labels/" lang="en" hreflang="en" data-lang-link="en" class="lang-option is-active" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/loki-json-logs-and-labels/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
@@ -81,28 +82,31 @@
       </div>
     </header>
     <main id="main" tabindex="-1" class="blog-container flex-1 py-12 sm:py-16">
-      <article class="mx-auto max-w-3xl" aria-labelledby="post-title">
+      <div class="post-layout">
+      <article class="post-article" aria-labelledby="post-title">
         <p><a href="/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All posts</a></p>
         <header class="mt-6">
-          <h1 id="post-title" class="text-3xl font-black leading-tight sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">Loki wants JSON log lines and few labels</h1>
+          <h1 id="post-title" class="text-3xl font-black leading-tight text-balance sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">Loki wants JSON log lines and few labels</h1>
           <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">Loki indexes labels only, so high-cardinality fields such as request or tenant IDs belong in the log line. With one JSON object per line, LogQL&#39;s json parser filters on them at query time.</p>
           <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
             <p class="post-meta"><span class="sr-only">Published </span><time datetime="2026-10-21">21 October 2026</time><span aria-hidden="true">·</span><span>2 min read</span></p>
             <ul class="flex flex-wrap gap-2" aria-label="Topics"><li class="tag text-primary-400">Loki</li><li class="tag text-foreground-muted">LogQL</li><li class="tag text-foreground-muted">Python</li></ul>
           </div>
         </header>
+        
+        
         <div class="card-glass mt-10 p-5 sm:p-10">
           <div class="prose-blog">
-<h2 id="the-problem">The problem</h2>
+<h2 id="the-problem"><a href="#the-problem" class="heading-link">The problem<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Coming from a full-text search engine, the natural move with Loki is to turn every useful field into a label: the level, the user, the tenant, the request ID. It works in a demo. With real traffic, ingestion slows down, queries get slower instead of faster, and Loki starts rejecting streams once it hits its stream limits.</p>
-<h2 id="why-it-happens">Why it happens</h2>
+<h2 id="why-it-happens"><a href="#why-it-happens" class="heading-link">Why it happens<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Loki indexes <strong>labels only</strong>, not the content of log lines. Each unique combination of label values is a separate stream, stored in its own chunks.</p>
 <ul>
 <li>A label with a few values, such as <code>app</code>, <code>namespace</code> or <code>environment</code>, creates a few streams.</li>
 <li>A label with unbounded values, such as a request ID or a tenant ID, creates a new stream for almost every value. That means many tiny chunks, a large index and more work for every query.</li>
 </ul>
 <p>This is high cardinality, and Loki&#39;s design asks you to avoid it in labels. Labels should describe <em>where</em> logs come from; everything about <em>what happened</em> belongs in the line.</p>
-<h2 id="the-fix">The fix</h2>
+<h2 id="the-fix"><a href="#the-fix" class="heading-link">The fix<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Keep a small, fixed set of labels, and write each log line as one JSON object. Fields stay out of the index but remain easy to query. In Python, a small formatter is enough:</p>
 <div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">python</span></div><pre tabindex="0" role="region" aria-label="Code example 1: python"><code class="language-python"><span class="tok-comment"># One JSON object per line on stdout; Grafana Alloy ships it to Loki as is</span>
 import json
@@ -124,7 +128,7 @@ class JsonFormatter(logging.Formatter):
             entry[&quot;exc&quot;] = self.formatException(record.exc_info)
         return json.dumps(entry, default=str)</code></pre></div>
 <p>A collector such as Grafana Alloy reads stdout and pushes the lines to Loki with the few labels you chose. Alloy replaces Promtail, which reached end of life on 2 March 2026.</p>
-<h2 id="querying-the-fields">Querying the fields</h2>
+<h2 id="querying-the-fields"><a href="#querying-the-fields" class="heading-link">Querying the fields<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>LogQL&#39;s <code>json</code> parser extracts the fields of each line at query time, and a label filter then keeps the matching lines:</p>
 <div class="code-block" data-code="2"><div class="code-head"><span class="code-lang">logql</span></div><pre tabindex="0" role="region" aria-label="Code example 2: logql"><code class="language-logql">{app=&quot;api&quot;} | json | level=&quot;ERROR&quot; | tenant=&quot;acme&quot;</code></pre></div>
 <p>Two habits keep these queries fast:</p>
@@ -133,20 +137,22 @@ class JsonFormatter(logging.Formatter):
 <li><strong>Filter lines before parsing.</strong> A line filter such as <code>|= &quot;acme&quot;</code> is cheap and cuts down the lines the parser has to read: <code>{app=&quot;api&quot;} |= &quot;acme&quot; | json | tenant=&quot;acme&quot;</code>.</li>
 </ul>
 <p>Nested objects are flattened with underscores: <code>{&quot;request&quot;: {&quot;method&quot;: &quot;GET&quot;}}</code> becomes <code>request_method</code>.</p>
-<h2 id="takeaway">Takeaway</h2>
+<h2 id="takeaway"><a href="#takeaway" class="heading-link">Takeaway<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>In Loki, labels are for routing and selecting streams, not for searching. Keep them few and bounded, put the details in structured JSON lines, and let LogQL parse them when you query.</p>
 
           </div>
         </div>
+        
       </article>
+      </div>
       <nav aria-label="More posts" class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
-          <a href="/blog/terraform-s3-state-locking-without-dynamodb/" rel="prev" class="card-glass post-nav-link">
-            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Previous post</span>
-            <span class="font-semibold text-foreground">Terraform can lock S3 state without DynamoDB</span>
-          </a>
-          <a href="/blog/tmux-keeps-work-alive-over-ssh/" rel="next" class="card-glass post-nav-link sm:text-right">
-            <span class="post-nav-label sm:justify-end">Next post<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a href="/blog/tmux-keeps-work-alive-over-ssh/" rel="prev" class="card-glass post-nav-link">
+            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Older post</span>
             <span class="font-semibold text-foreground">tmux keeps remote work alive when SSH drops</span>
+          </a>
+          <a href="/blog/terraform-s3-state-locking-without-dynamodb/" rel="next" class="card-glass post-nav-link sm:text-right">
+            <span class="post-nav-label sm:justify-end">Newer post<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="font-semibold text-foreground">Terraform can lock S3 state without DynamoDB</span>
           </a>
       </nav>
     </main>
@@ -161,6 +167,6 @@ class JsonFormatter(logging.Formatter):
       </div>
     </footer>
     <script type="application/json" id="blog-strings">{"copy":"Copy","copySr":" code example {n}","copied":"Copied","copyFailed":"Copy failed. The code is selected: copy it with Ctrl+C, ⌘C or your device's Copy command.","themeToLight":"Switch to light mode","themeToDark":"Switch to dark mode"}</script>
-    <script type="module" src="/assets/blog-CBlDt3Fb.js"></script>
+    <script type="module" src="/assets/blog-D7TuV5IF.js"></script>
   </body>
 </html>

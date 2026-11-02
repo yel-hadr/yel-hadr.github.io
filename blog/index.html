@@ -49,8 +49,9 @@
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, Software Engineer in cloud infrastructure and DevOps: his portrait and yel-hadr.github.io" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","@id":"https://yel-hadr.github.io/blog/#blog","name":"Blog – Youssef El Hadraoui","description":"Technical posts on backends, cloud infrastructure, DevOps and graphics programming: the problem, why it happens, the fix and code to reuse.","url":"https://yel-hadr.github.io/blog/","inLanguage":"en","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"isPartOf":{"@id":"https://yel-hadr.github.io/#website"},"blogPost":[{"@type":"BlogPosting","headline":"From C to WebGL: Recreating Wolfenstein 3D’s DDA Raycasting","url":"https://yel-hadr.github.io/blog/cub3d-raycasting-from-c-to-webgl/","datePublished":"2026-10-31"},{"@type":"BlogPosting","headline":"Rendering 500×500 Fractals: Isometric Math and Memory","url":"https://yel-hadr.github.io/blog/fdf-isometric-projection-and-memory/","datePublished":"2026-10-31"},{"@type":"BlogPosting","headline":"PgBouncer transaction pooling breaks django-tenants","url":"https://yel-hadr.github.io/blog/pgbouncer-transaction-pooling-django-tenants/","datePublished":"2026-10-21"},{"@type":"BlogPosting","headline":"Argo CD automated sync neither prunes nor self-heals by default","url":"https://yel-hadr.github.io/blog/argo-cd-automated-sync-prune-self-heal/","datePublished":"2026-10-21"},{"@type":"BlogPosting","headline":"VXLAN takes 50 bytes off every packet's MTU","url":"https://yel-hadr.github.io/blog/vxlan-mtu-overhead/","datePublished":"2026-10-21"},{"@type":"BlogPosting","headline":"Terraform can lock S3 state without DynamoDB","url":"https://yel-hadr.github.io/blog/terraform-s3-state-locking-without-dynamodb/","datePublished":"2026-10-21"},{"@type":"BlogPosting","headline":"Loki wants JSON log lines and few labels","url":"https://yel-hadr.github.io/blog/loki-json-logs-and-labels/","datePublished":"2026-10-21"},{"@type":"BlogPosting","headline":"tmux keeps remote work alive when SSH drops","url":"https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/","datePublished":"2026-10-21"}]}</script>
-    <link rel="stylesheet" href="/assets/index-8DjZW16R.css" />
-    <link rel="stylesheet" href="/assets/blog-Ko5rV2KU.css" />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/geist-latin-wght-normal-BgDaEnEv.woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/index-CgJDgUD7.css" />
+    <link rel="stylesheet" href="/assets/blog-Do_QcgqC.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
   <body class="flex min-h-screen flex-col">
@@ -66,7 +67,7 @@
           <nav aria-label="Blog">
             <ul class="flex items-center gap-1">
               <li><a href="/blog/" class="header-link" aria-current="page">Blog</a></li>
-              <li><a href="/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+              <li><a href="/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span class="sr-only xs:not-sr-only">RSS</span></a></li>
             </ul>
           </nav>
           <div role="group" aria-label="Language" class="lang-switch"><a href="/blog/" lang="en" hreflang="en" data-lang-link="en" class="lang-option is-active" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
@@ -105,13 +106,13 @@
           <h2 id="more-posts" class="text-2xl font-bold text-foreground sm:text-3xl">More posts</h2>
           <ul class="mt-6 grid gap-6">
         <li class="card-glass post-card">
-          <h3 class="text-xl font-bold text-foreground sm:text-2xl"><a href="/blog/pgbouncer-transaction-pooling-django-tenants/" class="stretched-link">PgBouncer transaction pooling breaks django-tenants</a></h3>
+          <h3 class="text-xl font-bold text-foreground sm:text-2xl"><a href="/blog/pgbouncer-transaction-pooling-django-tenants/" class="stretched-link">PgBouncer transaction pooling breaks <span class="whitespace-nowrap">django-tenants</span></a></h3>
           <p class="post-meta"><span class="sr-only">Published </span><time datetime="2026-10-21">21 October 2026</time><span aria-hidden="true">·</span><span>2 min read</span></p>
           <p class="text-base leading-relaxed text-foreground-muted">django-tenants picks the tenant with a session-level SET search_path, which PgBouncer&#39;s transaction mode does not keep. Why queries can reach the wrong schema, and two fixes.</p>
           <ul class="flex flex-wrap gap-2" aria-label="Topics"><li class="tag text-primary-400">PostgreSQL</li><li class="tag text-foreground-muted">PgBouncer</li><li class="tag text-foreground-muted">django-tenants</li></ul>
         </li>
         <li class="card-glass post-card">
-          <h3 class="text-xl font-bold text-foreground sm:text-2xl"><a href="/blog/argo-cd-automated-sync-prune-self-heal/" class="stretched-link">Argo CD automated sync neither prunes nor self-heals by default</a></h3>
+          <h3 class="text-xl font-bold text-foreground sm:text-2xl"><a href="/blog/argo-cd-automated-sync-prune-self-heal/" class="stretched-link">Argo CD automated sync neither prunes nor <span class="whitespace-nowrap">self-heals</span> by default</a></h3>
           <p class="post-meta"><span class="sr-only">Published </span><time datetime="2026-10-21">21 October 2026</time><span aria-hidden="true">·</span><span>2 min read</span></p>
           <p class="text-base leading-relaxed text-foreground-muted">Automated sync applies new commits, but it keeps resources deleted from Git and ignores manual changes in the cluster. The prune and selfHeal options close those two gaps.</p>
           <ul class="flex flex-wrap gap-2" aria-label="Topics"><li class="tag text-primary-400">Argo CD</li><li class="tag text-foreground-muted">GitOps</li><li class="tag text-foreground-muted">Kubernetes</li></ul>
@@ -155,6 +156,6 @@
       </div>
     </footer>
     <script type="application/json" id="blog-strings">{"copy":"Copy","copySr":" code example {n}","copied":"Copied","copyFailed":"Copy failed. The code is selected: copy it with Ctrl+C, ⌘C or your device's Copy command.","themeToLight":"Switch to light mode","themeToDark":"Switch to dark mode"}</script>
-    <script type="module" src="/assets/blog-CBlDt3Fb.js"></script>
+    <script type="module" src="/assets/blog-D7TuV5IF.js"></script>
   </body>
 </html>

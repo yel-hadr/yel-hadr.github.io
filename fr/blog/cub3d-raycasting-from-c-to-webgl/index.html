@@ -37,10 +37,10 @@
 <meta property="og:title" content="Du C au WebGL : le raycasting DDA de Wolfenstein 3D" />
 <meta property="og:description" content="cub3D lance un rayon par colonne d’écran en C et valide ses cartes .cub par remplissage ; collisions, portes et vue à la souris passent ensuite au WebGL." />
 <meta property="og:url" content="https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/" />
-<meta property="og:image" content="https://yel-hadr.github.io/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
+<meta property="og:image" content="https://yel-hadr.github.io/blog-media/cub3d-raycasting-from-c-to-webgl/cub3d-demo.webp" />
+<meta property="og:image:width" content="1142" />
+<meta property="og:image:height" content="686" />
+<meta property="og:image:alt" content="Du C au WebGL : le raycasting DDA de Wolfenstein 3D" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta property="article:published_time" content="2026-10-31" />
@@ -52,11 +52,12 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Du C au WebGL : le raycasting DDA de Wolfenstein 3D" />
 <meta name="twitter:description" content="cub3D lance un rayon par colonne d’écran en C et valide ses cartes .cub par remplissage ; collisions, portes et vue à la souris passent ensuite au WebGL." />
-<meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
-<meta name="twitter:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Du C au WebGL : le raycasting DDA de Wolfenstein 3D","description":"Comment mon cub3D de 42 lance un rayon par colonne d’écran à travers une grille en C, analyse et valide les cartes .cub, et comment ces idées portent un jeu React Three Fiber sur ce site.","url":"https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/","inLanguage":"fr","datePublished":"2026-10-31","dateModified":"2026-10-31","keywords":"C, MLX42, React Three Fiber","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-8DjZW16R.css" />
-    <link rel="stylesheet" href="/assets/blog-Ko5rV2KU.css" />
+<meta name="twitter:image" content="https://yel-hadr.github.io/blog-media/cub3d-raycasting-from-c-to-webgl/cub3d-demo.webp" />
+<meta name="twitter:image:alt" content="Du C au WebGL : le raycasting DDA de Wolfenstein 3D" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Du C au WebGL : le raycasting DDA de Wolfenstein 3D","description":"Comment mon cub3D de 42 lance un rayon par colonne d’écran à travers une grille en C, analyse et valide les cartes .cub, et comment ces idées portent un jeu React Three Fiber sur ce site.","url":"https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/cub3d-raycasting-from-c-to-webgl/","inLanguage":"fr","datePublished":"2026-10-31","dateModified":"2026-10-31","keywords":"C, MLX42, React Three Fiber","image":"https://yel-hadr.github.io/blog-media/cub3d-raycasting-from-c-to-webgl/cub3d-demo.webp","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/geist-latin-wght-normal-BgDaEnEv.woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/index-CgJDgUD7.css" />
+    <link rel="stylesheet" href="/assets/blog-Do_QcgqC.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
   <body class="flex min-h-screen flex-col">
@@ -72,7 +73,7 @@
           <nav aria-label="Blog">
             <ul class="flex items-center gap-1">
               <li><a href="/fr/blog/" class="header-link">Blog</a></li>
-              <li><a href="/fr/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+              <li><a href="/fr/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span class="sr-only xs:not-sr-only">RSS</span></a></li>
             </ul>
           </nav>
           <div role="group" aria-label="Langue" class="lang-switch"><a href="/blog/cub3d-raycasting-from-c-to-webgl/" lang="en" hreflang="en" data-lang-link="en" class="lang-option"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/cub3d-raycasting-from-c-to-webgl/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option is-active" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
@@ -81,24 +82,31 @@
       </div>
     </header>
     <main id="main" tabindex="-1" class="blog-container flex-1 py-12 sm:py-16">
-      <article class="mx-auto max-w-3xl" aria-labelledby="post-title">
+      <div class="post-layout has-toc">
+      <article class="post-article" aria-labelledby="post-title">
         <p><a href="/fr/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Tous les articles</a></p>
         <header class="mt-6">
-          <h1 id="post-title" class="text-3xl font-black leading-tight sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">Du C au WebGL : le raycasting DDA de Wolfenstein 3D</h1>
+          <h1 id="post-title" class="text-3xl font-black leading-tight text-balance sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">Du C au WebGL : le raycasting DDA de Wolfenstein 3D</h1>
           <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">Comment mon cub3D de 42 lance un rayon par colonne d’écran à travers une grille en C, analyse et valide les cartes .cub, et comment ces idées portent un jeu React Three Fiber sur ce site.</p>
           <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
             <p class="post-meta"><span class="sr-only">Publié le </span><time datetime="2026-10-31">31 octobre 2026</time><span aria-hidden="true">·</span><span>13 min de lecture</span></p>
             <ul class="flex flex-wrap gap-2" aria-label="Sujets"><li class="tag text-primary-400">C</li><li class="tag text-foreground-muted">MLX42</li><li class="tag text-foreground-muted">React Three Fiber</li></ul>
           </div>
         </header>
+        <nav class="toc toc-side" aria-labelledby="toc-side">
+            <h2 id="toc-side" class="toc-heading">Sur cette page</h2><ol class="toc-list"><li><a href="#le-sujet">Le sujet</a></li><li><a href="#une-grille-2d-vue-de-l-interieur">Une grille 2D, vue de l’intérieur</a></li><li><a href="#traverser-la-grille-le-dda">Traverser la grille : le DDA</a></li><li><a href="#d-une-distance-a-un-mur-a-l-ecran">D’une distance à un mur à l’écran</a></li><li><a href="#analyser-un-cub-strictement">Analyser un .cub, strictement</a></li><li><a href="#les-bonus-en-c-et-dans-le-navigateur">Les bonus, en C et dans le navigateur</a></li><li><a href="#ce-qui-change-entre-le-c-et-le-webgl">Ce qui change entre le C et le WebGL</a></li><li><a href="#a-retenir">À retenir</a></li></ol>
+          </nav>
+        <nav class="toc toc-top" aria-labelledby="toc-top">
+            <details><summary id="toc-top" class="toc-heading"><svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="toc-chevron h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>Sur cette page</summary><ol class="toc-list"><li><a href="#le-sujet">Le sujet</a></li><li><a href="#une-grille-2d-vue-de-l-interieur">Une grille 2D, vue de l’intérieur</a></li><li><a href="#traverser-la-grille-le-dda">Traverser la grille : le DDA</a></li><li><a href="#d-une-distance-a-un-mur-a-l-ecran">D’une distance à un mur à l’écran</a></li><li><a href="#analyser-un-cub-strictement">Analyser un .cub, strictement</a></li><li><a href="#les-bonus-en-c-et-dans-le-navigateur">Les bonus, en C et dans le navigateur</a></li><li><a href="#ce-qui-change-entre-le-c-et-le-webgl">Ce qui change entre le C et le WebGL</a></li><li><a href="#a-retenir">À retenir</a></li></ol></details>
+          </nav>
         <div class="card-glass mt-10 p-5 sm:p-10">
           <div class="prose-blog">
-<h2 id="le-sujet">Le sujet</h2>
+<h2 id="le-sujet"><a href="#le-sujet" class="heading-link">Le sujet<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Le sujet cub3D de 42 s’ouvre sur Wolfenstein 3D : développé par id Software sous la direction de John Carmack et John Romero, publié en 1992, et présenté comme « le premier vrai jeu de tir à la première personne ». Le but est d’en refaire le principe en C : une vue 3D « réaliste » de l’intérieur d’un labyrinthe, dessinée par ray-casting, avec la MiniLibX (j’ai utilisé MLX42, la version de Codam). Les fonctions autorisées tiennent en une courte liste (<code>open</code>, <code>read</code>, <code>malloc</code>, <code>free</code>, la bibliothèque mathématique, la bibliothèque graphique et quelques autres) : tout le reste s’écrit à la main.</p>
 <p>Cet article reprend les maths, l’analyseur de cartes et les bonus de ma version en C (<a href="https://github.com/yel-hadr/cub3D_42">cub3D_42 sur GitHub</a>), puis montre comment ces mêmes idées sont devenues la démo en direct et le Game Mode de ce site, en React Three Fiber.</p>
 <figure class="post-figure"><img src="/blog-media/cub3d-raycasting-from-c-to-webgl/cub3d-demo.webp" width="1142" height="686" alt="La démo cub3D en direct : la carte map.cub du dépôt, une texture différente sur chaque face de mur, et les rayons de la mini-carte en haut à droite" loading="lazy" decoding="async" /><figcaption>La démo en direct, construite à partir de maps/map.cub du dépôt. Lancez-la depuis la carte cub3D de la page d’accueil.</figcaption></figure>
 <p><a href="/?demo=cub3d">Lancer la démo cub3D en direct</a></p>
-<h2 id="une-grille-2d-vue-de-l-interieur">Une grille 2D, vue de l’intérieur</h2>
+<h2 id="une-grille-2d-vue-de-l-interieur"><a href="#une-grille-2d-vue-de-l-interieur" class="heading-link">Une grille 2D, vue de l’intérieur<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Une carte <code>.cub</code> est une grille : <code>1</code> est un mur, <code>0</code> du sol. Le monde n’a jamais d’étage ni de pente : une vue 3D n’a donc besoin que d’un nombre par colonne d’écran, la distance du mur le plus proche dans cette direction.</p>
 <p>Ma version en C compte 64 unités par case (<code>BLOCK</code>), dans une fenêtre de 1600 × 900, avec un champ de vision de 60°. Pour chacune des 1600 colonnes, elle lance un rayon, en partant de l’angle de vue moins 30° et en tournant de 60/1600 de degré par colonne :</p>
 <div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">c</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 1 : c"><code class="language-c">ray_angle = normalize_angle(data-&gt;camera.angle - DEGRE * FOV_ANGLE / <span class="tok-number">2</span>);
@@ -112,7 +120,7 @@ ray = <span class="tok-number">0</span>;
 	ray_angle = normalize_angle(ray_angle);
 	ray++;
 }</code></pre></div>
-<h2 id="traverser-la-grille-le-dda">Traverser la grille : le DDA</h2>
+<h2 id="traverser-la-grille-le-dda"><a href="#traverser-la-grille-le-dda" class="heading-link">Traverser la grille : le DDA<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>La méthode naïve avance le long du rayon par petits pas et teste chaque point. Elle est lente, et un pas trop long saute le coin d’un mur. Un analyseur différentiel numérique (DDA) ne teste que les points où le rayon croise une ligne de la grille, car un mur ne peut commencer que là. Entre deux lignes horizontales, le rayon avance toujours d’exactement une case (64 unités) en y et de 64 / tan(θ) en x. Après la première intersection, chaque suivante n’est donc qu’une addition constante.</p>
 <p>Ma version en C fait ce parcours deux fois par rayon, une fois sur les lignes horizontales et une fois sur les verticales, et garde l’impact le plus proche. Le gagnant dit aussi quelle face a été touchée : un impact horizontal est une face nord ou sud, un impact vertical une face est ou ouest. C’est ainsi que les quatre textures du sujet (NO, SO, WE, EA) sont choisies. Version condensée de <code>h_v_check.c</code> :</p>
 <div class="code-block" data-code="2"><div class="code-head"><span class="code-lang">c</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 2 : c"><code class="language-c"><span class="tok-comment">/* La première ligne horizontale croisée par le rayon, puis une case par pas */</span>
@@ -149,7 +157,7 @@ ray.xstep = BLOCK / tan(ray_angle);   <span class="tok-comment">/* son signe sui
   }
   <span class="tok-keyword">if</span> (solid(cx, cz)) <span class="tok-keyword">break</span>;
 }</code></pre></div>
-<h2 id="d-une-distance-a-un-mur-a-l-ecran">D’une distance à un mur à l’écran</h2>
+<h2 id="d-une-distance-a-un-mur-a-l-ecran"><a href="#d-une-distance-a-un-mur-a-l-ecran" class="heading-link">D’une distance à un mur à l’écran<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Deux détails transforment une distance en mur crédible.</p>
 <p><strong>L’effet fish-eye.</strong> Les rayons des bords de l’écran parcourent plus de chemin que celui du milieu pour atteindre le même mur plat : avec la distance euclidienne, les murs droits se bombent. La correction ne garde que la part de la distance dans l’axe de la vue : on la multiplie par le cosinus de l’angle entre le rayon et la vue.</p>
 <p><strong>Le plan de projection.</strong> L’écran est un plan à une distance d de l’œil, choisie pour que le champ de 60° remplisse ses 1600 colonnes : d = (1600 / 2) / tan(30°) ≈ 1385,6. Une tranche de mur de hauteur 64 à une distance D mesure alors 64 / D × d pixels à l’écran.</p>
@@ -160,7 +168,7 @@ data-&gt;distance_proj_plane = (WINDOW_WIDTH / <span class="tok-number">2</span>
 ray.wall_strip_height = (BLOCK / ray.distance) * data-&gt;distance_proj_plane;
 ray.wall_top = (WINDOW_HEIGHT / <span class="tok-number">2</span>) - (ray.wall_strip_height / <span class="tok-number">2</span>);</code></pre></div>
 <p>Un mur à deux cases droit devant (128 unités) mesure 64 / 128 × 1385,6 ≈ 693 pixels, les trois quarts de la fenêtre. La colonne de texture vient du point d’impact dans la case : <code>hit_y % 64</code> sur un mur vertical, <code>hit_x % 64</code> sur un mur horizontal. Puis chaque pixel de la colonne est écrit à la main : la couleur du plafond, les texels du mur, la couleur du sol. Cela fait 1,44 million d’appels à <code>mlx_put_pixel</code> par image, tous sur le CPU.</p>
-<h2 id="analyser-un-cub-strictement">Analyser un .cub, strictement</h2>
+<h2 id="analyser-un-cub-strictement"><a href="#analyser-un-cub-strictement" class="heading-link">Analyser un .cub, strictement<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Le sujet est précis sur le fichier :</p>
 <ul>
 <li>Six éléments, dans n’importe quel ordre, séparés par autant de lignes vides qu’on veut : <code>NO</code>, <code>SO</code>, <code>WE</code> et <code>EA</code> avec le chemin d’une texture, puis <code>F</code> et <code>C</code> avec une couleur R,G,B, chaque canal dans [0, 255].</li>
@@ -191,7 +199,7 @@ curr = head;
 ft_lstclear(&amp;head);</code></pre></div>
 <p>Les espaces dans la carte deviennent du sol avant le remplissage, et les lignes courtes sont complétées. Une brèche dans un mur, même cachée derrière un espace, est donc trouvée. Ce contrôle est un parcours en largeur : la liste chaînée lui sert de file, et chaque case visitée y reste.</p>
 <p>Une chose que je changerais aujourd’hui : <code>valid_coords</code> vérifie si une case a déjà été visitée en parcourant cette liste, ce qui rend le remplissage O(n²) en nombre de cases. C’est invisible sur une carte de quelques centaines de cases. L’analyseur web garde plutôt un <code>Uint8Array</code> d’un octet par case, ce qui rend le même remplissage O(n).</p>
-<h2 id="les-bonus-en-c-et-dans-le-navigateur">Les bonus, en C et dans le navigateur</h2>
+<h2 id="les-bonus-en-c-et-dans-le-navigateur"><a href="#les-bonus-en-c-et-dans-le-navigateur" class="heading-link">Les bonus, en C et dans le navigateur<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>La liste des bonus du sujet : collisions avec les murs, mini-carte, portes qui s’ouvrent et se ferment, sprites animés, et rotation de la vue à la souris. Voici chacun en C et dans le Game Mode de ce site, un monde cub3D plein écran écrit en React Three Fiber.</p>
 <figure class="post-figure"><img src="/blog-media/cub3d-raycasting-from-c-to-webgl/game-mode.webp" width="1200" height="750" alt="Le Game Mode de ce site : un terminal mural dans la salle About, le radar en haut à droite avec les portes, les menaces et le cône de vision du joueur, et la liste de mission à gauche" loading="lazy" decoding="async" /><figcaption>Le Game Mode : la même grille, le même format de carte et les mêmes règles, rendus par le GPU. Ouvrez-le avec le bouton Mode Jeu de la page d’accueil.</figcaption></figure>
 <p><strong>Collisions avec les murs.</strong> En C, un déplacement n’est permis que si le point d’arrivée n’est pas dans un mur, ni un point quatre pas plus loin sur chaque axe : cette marge empêche la caméra de toucher un mur. Sur le web, le joueur est un petit carré (0,2 case de son centre à son bord) testé par ses quatre coins. Chaque axe est testé séparément : marcher en biais contre un mur fait glisser le long de celui-ci au lieu de s’arrêter net.</p>
@@ -211,7 +219,7 @@ ft_lstclear(&amp;head);</code></pre></div>
 <p>Les portes sont dessinées par un seul maillage instancié, dont les deux moitiés glissent dans les murs à l’ouverture, ou basculent d’un coup quand les animations sont réduites.</p>
 <p><strong>Vue à la souris.</strong> En C, MLX masque le curseur et un gestionnaire de curseur fait tourner la vue. Dans le navigateur, l’API Pointer Lock donne le mouvement brut de la souris. Chaque mouvement s’ajoute à une rotation en attente, que la caméra parcourt à chaque image, avec un peu d’inertie (immédiate quand les animations sont réduites).</p>
 <p><strong>Sprites animés.</strong> En C, c’est l’arme : quatre images (au repos, le tir, deux de recul) qui défilent après un tir. Dans le Game Mode, les armes sont des modèles 3D low-poly avec recul, balancement et oscillation, tous supprimés quand les animations sont réduites.</p>
-<h2 id="ce-qui-change-entre-le-c-et-le-webgl">Ce qui change entre le C et le WebGL</h2>
+<h2 id="ce-qui-change-entre-le-c-et-le-webgl"><a href="#ce-qui-change-entre-le-c-et-le-webgl" class="heading-link">Ce qui change entre le C et le WebGL<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Tableau 1"><table>
 <thead>
 <tr>
@@ -252,7 +260,7 @@ ft_lstclear(&amp;head);</code></pre></div>
 <div class="code-block" data-code="8"><div class="code-head"><span class="code-lang">js</span></div><pre tabindex="0" role="region" aria-label="Exemple de code 8 : js"><code class="language-js"><span class="tok-keyword">const</span> aspect = size.width / Math.max(size.height, <span class="tok-number">1</span>);
 eye.fov = (<span class="tok-number">2</span> * Math.atan(Math.tan((FOV * Math.PI) / <span class="tok-number">360</span>) / aspect) * <span class="tok-number">180</span>) / Math.PI;</code></pre></div>
 <p>L’autre changement est la mémoire. En C, une texture vit jusqu’à <code>mlx_delete_texture</code>. En WebGL, une géométrie ou une texture créée à la main garde sa mémoire GPU jusqu’à l’appel de <code>dispose()</code>, quoi que fasse le ramasse-miettes de JavaScript. Un navigateur n’autorise aussi que quelques contextes WebGL actifs à la fois : la page n’en garde qu’un, libère le sien avant qu’une démo ou le Game Mode crée le leur, et le récupère à leur fermeture.</p>
-<h2 id="a-retenir">À retenir</h2>
+<h2 id="a-retenir"><a href="#a-retenir" class="heading-link">À retenir<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <ul>
 <li>Le raycasting est un problème en 2D : la grille et une distance par colonne forment tout le modèle du monde.</li>
 <li>Le DDA est rapide parce qu’il ne visite que les lignes de la grille : chaque rayon coûte la taille de la carte, pas la distance.</li>
@@ -262,13 +270,15 @@ eye.fov = (<span class="tok-number">2</span> * Math.atan(Math.tan((FOV * Math.PI
 
           </div>
         </div>
+        <p class="mt-6"><a href="#main" class="back-to-top"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Retour en haut</a></p>
       </article>
+      </div>
       <nav aria-label="Autres articles" class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
-          <span></span>
-          <a href="/fr/blog/fdf-isometric-projection-and-memory/" rel="next" class="card-glass post-nav-link sm:text-right">
-            <span class="post-nav-label sm:justify-end">Article suivant<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a href="/fr/blog/fdf-isometric-projection-and-memory/" rel="prev" class="card-glass post-nav-link">
+            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Article plus ancien</span>
             <span class="font-semibold text-foreground">Fractales 500×500 : projection isométrique et mémoire</span>
           </a>
+          <span></span>
       </nav>
     </main>
     <footer class="border-t border-line bg-background/80 backdrop-blur-md">
@@ -282,6 +292,6 @@ eye.fov = (<span class="tok-number">2</span> * Math.atan(Math.tan((FOV * Math.PI
       </div>
     </footer>
     <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
-    <script type="module" src="/assets/blog-CBlDt3Fb.js"></script>
+    <script type="module" src="/assets/blog-D7TuV5IF.js"></script>
   </body>
 </html>

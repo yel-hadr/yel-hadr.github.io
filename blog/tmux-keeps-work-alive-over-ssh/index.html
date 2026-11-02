@@ -54,8 +54,9 @@
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, Software Engineer in cloud infrastructure and DevOps: his portrait and yel-hadr.github.io" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"tmux keeps remote work alive when SSH drops","description":"Work on a server inside a named tmux session. If the connection drops, the shell and its running commands survive, and tmux attach brings them back. A few default key bindings cover daily use.","url":"https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/","mainEntityOfPage":"https://yel-hadr.github.io/blog/tmux-keeps-work-alive-over-ssh/","inLanguage":"en","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"tmux, SSH","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-8DjZW16R.css" />
-    <link rel="stylesheet" href="/assets/blog-Ko5rV2KU.css" />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/geist-latin-wght-normal-BgDaEnEv.woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/index-CgJDgUD7.css" />
+    <link rel="stylesheet" href="/assets/blog-Do_QcgqC.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
   <body class="flex min-h-screen flex-col">
@@ -71,7 +72,7 @@
           <nav aria-label="Blog">
             <ul class="flex items-center gap-1">
               <li><a href="/blog/" class="header-link">Blog</a></li>
-              <li><a href="/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+              <li><a href="/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span class="sr-only xs:not-sr-only">RSS</span></a></li>
             </ul>
           </nav>
           <div role="group" aria-label="Language" class="lang-switch"><a href="/blog/tmux-keeps-work-alive-over-ssh/" lang="en" hreflang="en" data-lang-link="en" class="lang-option is-active" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/tmux-keeps-work-alive-over-ssh/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
@@ -80,24 +81,27 @@
       </div>
     </header>
     <main id="main" tabindex="-1" class="blog-container flex-1 py-12 sm:py-16">
-      <article class="mx-auto max-w-3xl" aria-labelledby="post-title">
+      <div class="post-layout">
+      <article class="post-article" aria-labelledby="post-title">
         <p><a href="/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>All posts</a></p>
         <header class="mt-6">
-          <h1 id="post-title" class="text-3xl font-black leading-tight sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">tmux keeps remote work alive when SSH drops</h1>
+          <h1 id="post-title" class="text-3xl font-black leading-tight text-balance sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">tmux keeps remote work alive when SSH drops</h1>
           <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">Work on a server inside a named tmux session. If the connection drops, the shell and its running commands survive, and tmux attach brings them back. A few default key bindings cover daily use.</p>
           <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
             <p class="post-meta"><span class="sr-only">Published </span><time datetime="2026-10-21">21 October 2026</time><span aria-hidden="true">·</span><span>2 min read</span></p>
             <ul class="flex flex-wrap gap-2" aria-label="Topics"><li class="tag text-primary-400">tmux</li><li class="tag text-foreground-muted">SSH</li></ul>
           </div>
         </header>
+        
+        
         <div class="card-glass mt-10 p-5 sm:p-10">
           <div class="prose-blog">
-<h2 id="the-problem">The problem</h2>
+<h2 id="the-problem"><a href="#the-problem" class="heading-link">The problem<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>You start a long migration, a backup or a package upgrade over SSH. The Wi-Fi blinks, the laptop sleeps or the VPN reconnects, and the SSH session ends. So does the command: it was a child of your login shell, and that shell went away with the connection. Now you have to work out how far it got.</p>
-<h2 id="why-it-happens">Why it happens</h2>
+<h2 id="why-it-happens"><a href="#why-it-happens" class="heading-link">Why it happens<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>When an SSH connection closes, the remote login shell receives a hangup signal (<code>SIGHUP</code>) and exits, and the jobs it started normally end with it. Everything you ran was tied to that one connection.</p>
 <p>tmux breaks that tie. It runs a server process on the remote machine that owns your shells. Your SSH session only runs a tmux <em>client</em>, which displays a session and sends it your keystrokes. When the connection drops, the client goes away, but the tmux server, the session, its shells and their running commands keep going.</p>
-<h2 id="the-fix">The fix</h2>
+<h2 id="the-fix"><a href="#the-fix" class="heading-link">The fix<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Do server work inside a named session, and reattach after a disconnect:</p>
 <div class="code-block" data-code="1"><div class="code-head"><span class="code-lang">shell</span></div><pre tabindex="0" role="region" aria-label="Code example 1: shell"><code class="language-shell">tmux new -s deploy      <span class="tok-comment"># start a named session</span>
 tmux attach -t deploy   <span class="tok-comment"># reattach after the SSH connection drops</span>
@@ -116,20 +120,22 @@ tmux ls                 <span class="tok-comment"># list sessions</span>
 <li><strong>Several servers at once.</strong> In a split window, <code>synchronize-panes</code> sends the same keystrokes to every pane. Turn it off again with <code>:setw synchronize-panes off</code>.</li>
 <li><strong>Forgot a binding?</strong> <code>Ctrl-b</code> then <code>?</code> lists them all.</li>
 </ul>
-<h2 id="limits">Limits</h2>
+<h2 id="limits"><a href="#limits" class="heading-link">Limits<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>tmux protects against a lost connection, not a lost machine: a reboot of the server ends the tmux server and everything in it. For work that must survive that, use a proper service or job scheduler.</p>
-<h2 id="takeaway">Takeaway</h2>
+<h2 id="takeaway"><a href="#takeaway" class="heading-link">Takeaway<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Make <code>tmux new -A -s &lt;name&gt;</code> the first thing you run on a server before any long task. A dropped connection then costs a reattach instead of a restarted job.</p>
 
           </div>
         </div>
+        
       </article>
+      </div>
       <nav aria-label="More posts" class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
-          <a href="/blog/loki-json-logs-and-labels/" rel="prev" class="card-glass post-nav-link">
-            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Previous post</span>
+          <span></span>
+          <a href="/blog/loki-json-logs-and-labels/" rel="next" class="card-glass post-nav-link sm:text-right">
+            <span class="post-nav-label sm:justify-end">Newer post<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             <span class="font-semibold text-foreground">Loki wants JSON log lines and few labels</span>
           </a>
-          <span></span>
       </nav>
     </main>
     <footer class="border-t border-line bg-background/80 backdrop-blur-md">
@@ -143,6 +149,6 @@ tmux ls                 <span class="tok-comment"># list sessions</span>
       </div>
     </footer>
     <script type="application/json" id="blog-strings">{"copy":"Copy","copySr":" code example {n}","copied":"Copied","copyFailed":"Copy failed. The code is selected: copy it with Ctrl+C, ⌘C or your device's Copy command.","themeToLight":"Switch to light mode","themeToDark":"Switch to dark mode"}</script>
-    <script type="module" src="/assets/blog-CBlDt3Fb.js"></script>
+    <script type="module" src="/assets/blog-D7TuV5IF.js"></script>
   </body>
 </html>

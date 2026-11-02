@@ -55,8 +55,9 @@
 <meta name="twitter:image" content="https://yel-hadr.github.io/og-image.png" />
 <meta name="twitter:image:alt" content="Youssef El Hadraoui, ingénieur logiciel en infrastructure cloud et DevOps : son portrait et yel-hadr.github.io" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"VXLAN retire 50 octets au MTU de chaque paquet","description":"VXLAN ajoute 50 octets d’en-têtes à chaque trame, 70 sur IPv6. Sur un underlay à 1500 octets, fixez le MTU de l’overlay à 1450 ou passez aux trames jumbo, sinon les gros transferts bloquent alors que les pings passent.","url":"https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/","mainEntityOfPage":"https://yel-hadr.github.io/fr/blog/vxlan-mtu-overhead/","inLanguage":"fr","datePublished":"2026-10-21","dateModified":"2026-10-21","keywords":"VXLAN, BGP EVPN, MTU","image":"https://yel-hadr.github.io/og-image.png","author":{"@type":"Person","@id":"https://yel-hadr.github.io/#person","name":"Youssef El Hadraoui","url":"https://yel-hadr.github.io/"},"publisher":{"@id":"https://yel-hadr.github.io/#person"},"isPartOf":{"@id":"https://yel-hadr.github.io/fr/blog/#blog"}}</script>
-    <link rel="stylesheet" href="/assets/index-8DjZW16R.css" />
-    <link rel="stylesheet" href="/assets/blog-Ko5rV2KU.css" />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/geist-latin-wght-normal-BgDaEnEv.woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/index-CgJDgUD7.css" />
+    <link rel="stylesheet" href="/assets/blog-Do_QcgqC.css" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="04841905-4d45-4a6c-bf1a-a1d3df2dd373" data-domains="yel-hadr.github.io" data-do-not-track="true"></script>
   </head>
   <body class="flex min-h-screen flex-col">
@@ -72,7 +73,7 @@
           <nav aria-label="Blog">
             <ul class="flex items-center gap-1">
               <li><a href="/fr/blog/" class="header-link">Blog</a></li>
-              <li><a href="/fr/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span>RSS</span></a></li>
+              <li><a href="/fr/blog/rss.xml" class="header-link" type="application/rss+xml"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a8 8 0 0 1 8 8M5 4a15 15 0 0 1 15 15"/><circle cx="6" cy="18" r="1.5" fill="currentColor"/></svg><span class="sr-only xs:not-sr-only">RSS</span></a></li>
             </ul>
           </nav>
           <div role="group" aria-label="Langue" class="lang-switch"><a href="/blog/vxlan-mtu-overhead/" lang="en" hreflang="en" data-lang-link="en" class="lang-option"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a><a href="/fr/blog/vxlan-mtu-overhead/" lang="fr" hreflang="fr" data-lang-link="fr" class="lang-option is-active" aria-current="true"><span aria-hidden="true">FR</span><span class="sr-only">Français</span></a></div>
@@ -81,21 +82,24 @@
       </div>
     </header>
     <main id="main" tabindex="-1" class="blog-container flex-1 py-12 sm:py-16">
-      <article class="mx-auto max-w-3xl" aria-labelledby="post-title">
+      <div class="post-layout">
+      <article class="post-article" aria-labelledby="post-title">
         <p><a href="/fr/blog/" class="back-link"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Tous les articles</a></p>
         <header class="mt-6">
-          <h1 id="post-title" class="text-3xl font-black leading-tight sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">VXLAN retire 50 octets au MTU de chaque paquet</h1>
+          <h1 id="post-title" class="text-3xl font-black leading-tight text-balance sm:leading-10 lg:leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl">VXLAN retire 50 octets au MTU de chaque paquet</h1>
           <p class="mt-4 text-base leading-relaxed sm:leading-7 text-foreground-muted sm:text-lg">VXLAN ajoute 50 octets d’en-têtes à chaque trame, 70 sur IPv6. Sur un underlay à 1500 octets, fixez le MTU de l’overlay à 1450 ou passez aux trames jumbo, sinon les gros transferts bloquent alors que les pings passent.</p>
           <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
             <p class="post-meta"><span class="sr-only">Publié le </span><time datetime="2026-10-21">21 octobre 2026</time><span aria-hidden="true">·</span><span>3 min de lecture</span></p>
             <ul class="flex flex-wrap gap-2" aria-label="Sujets"><li class="tag text-primary-400">VXLAN</li><li class="tag text-foreground-muted">BGP EVPN</li><li class="tag text-foreground-muted">MTU</li></ul>
           </div>
         </header>
+        
+        
         <div class="card-glass mt-10 p-5 sm:p-10">
           <div class="prose-blog">
-<h2 id="le-probleme">Le problème</h2>
+<h2 id="le-probleme"><a href="#le-probleme" class="heading-link">Le problème<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Un nouvel overlay VXLAN semble en bonne santé : les hôtes se pinguent et les connexions SSH fonctionnent. Puis une copie de fichier, un dump de base de données ou une grosse réponse HTTPS se fige en plein milieu, sans erreur d’un côté ni de l’autre. Les petits paquets passent ; ceux de taille maximale, non.</p>
-<h2 id="pourquoi">Pourquoi</h2>
+<h2 id="pourquoi"><a href="#pourquoi" class="heading-link">Pourquoi<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>VXLAN transporte des trames Ethernet dans de l’UDP. Chaque trame de l’overlay est enveloppée dans de nouveaux en-têtes avant de traverser l’underlay :</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Tableau 1"><table>
 <thead>
@@ -129,7 +133,7 @@
 <p>L’en-tête Ethernet interne compte, car pour l’underlay il fait désormais partie de la charge utile. Sur un underlay IPv6, l’en-tête IP externe fait 40 octets, et le total passe à 70.</p>
 <p>Le MTU d’une interface limite la taille du paquet IP : sur un underlay standard à 1500 octets, le paquet IP interne ne peut donc pas dépasser 1500 - 50 = 1450 octets. Si l’interface de l’overlay annonce toujours 1500, les paquets de taille maximale ne tiennent plus une fois encapsulés. Ils sont rejetés ou fragmentés, et quand les messages ICMP dont dépend la découverte du MTU du chemin ne reviennent pas, les connexions TCP se bloquent dès qu’elles envoient des segments pleins. Voilà pourquoi les pings et les petites requêtes passent alors que les gros transferts restent bloqués.</p>
 <p>Que les points de terminaison du tunnel se découvrent par inondation ou par un plan de contrôle BGP EVPN n’y change rien : l’encapsulation du plan de données, et son surcoût, restent les mêmes.</p>
-<h2 id="la-solution">La solution</h2>
+<h2 id="la-solution"><a href="#la-solution" class="heading-link">La solution<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Au choix :</p>
 <ul>
 <li><strong>Baisser le MTU de l’overlay</strong> au MTU de l’underlay moins le surcoût : 1450 sur un underlay IPv4 à 1500 octets, 1430 sur IPv6.</li>
@@ -144,20 +148,22 @@ ip link set vxlan100 mtu 1450 up
 <span class="tok-comment"># Vérifier le chemin sans fragmentation : 1422 + ICMP (8) + IPv4 (20) = 1450</span>
 ping -M do -s 1422 10.200.0.2</code></pre></div>
 <p>Si ce ping réussit, un paquet de taille maximale de l’overlay traverse bien le tunnel. Avec <code>-s 1423</code>, ping signale une erreur : le paquet de 1451 octets dépasse le MTU de 1450 de l’interface. Pour vérifier l’underlay lui-même, pinguez le point de terminaison distant du tunnel avec <code>-M do -s 1472</code> (1472 + 8 + 20 = 1500).</p>
-<h2 id="a-retenir">À retenir</h2>
+<h2 id="a-retenir"><a href="#a-retenir" class="heading-link">À retenir<span class="heading-hash" aria-hidden="true">#</span></a></h2>
 <p>Chaque tunnel consomme de la marge. Quand les gros transferts bloquent alors que les pings passent, comparez le MTU de l’overlay au MTU de l’underlay moins le surcoût d’encapsulation avant de chercher ailleurs. Les overlays construits sur VXLAN, comme certains plugins réseau de Kubernetes, ont la même limite.</p>
 
           </div>
         </div>
+        
       </article>
+      </div>
       <nav aria-label="Autres articles" class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
-          <a href="/fr/blog/argo-cd-automated-sync-prune-self-heal/" rel="prev" class="card-glass post-nav-link">
-            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Article précédent</span>
-            <span class="font-semibold text-foreground">La synchronisation automatique d’Argo CD ne nettoie ni ne corrige rien par défaut</span>
-          </a>
-          <a href="/fr/blog/terraform-s3-state-locking-without-dynamodb/" rel="next" class="card-glass post-nav-link sm:text-right">
-            <span class="post-nav-label sm:justify-end">Article suivant<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a href="/fr/blog/terraform-s3-state-locking-without-dynamodb/" rel="prev" class="card-glass post-nav-link">
+            <span class="post-nav-label"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Article plus ancien</span>
             <span class="font-semibold text-foreground">Terraform verrouille l’état S3 sans DynamoDB</span>
+          </a>
+          <a href="/fr/blog/argo-cd-automated-sync-prune-self-heal/" rel="next" class="card-glass post-nav-link sm:text-right">
+            <span class="post-nav-label sm:justify-end">Article plus récent<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="font-semibold text-foreground">La synchronisation automatique d’Argo CD ne nettoie ni ne corrige rien par défaut</span>
           </a>
       </nav>
     </main>
@@ -172,6 +178,6 @@ ping -M do -s 1422 10.200.0.2</code></pre></div>
       </div>
     </footer>
     <script type="application/json" id="blog-strings">{"copy":"Copier","copySr":" l’exemple de code {n}","copied":"Copié","copyFailed":"Échec de la copie. Le code est sélectionné : copiez-le avec Ctrl+C, ⌘C ou la commande Copier de votre appareil.","themeToLight":"Passer en mode clair","themeToDark":"Passer en mode sombre"}</script>
-    <script type="module" src="/assets/blog-CBlDt3Fb.js"></script>
+    <script type="module" src="/assets/blog-D7TuV5IF.js"></script>
   </body>
 </html>
