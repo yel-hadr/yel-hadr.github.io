@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-05T15:45:10.534Z",
+  "generatedAt": "2026-11-05T21:55:14.568Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -14,7 +14,7 @@
   },
   "history": {
     "loaded": true,
-    "samples": 349
+    "samples": 337
   },
   "monitors": [
     {
@@ -27,25 +27,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 188,
+      "latencyMs": 325,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-05T15:45:10.534Z",
+      "checkedAt": "2026-11-05T21:55:14.568Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 53
+          "samples": 40
         },
         "7d": {
           "ratio": 1,
-          "samples": 349
+          "samples": 337
         }
       },
       "latency24h": {
-        "p50": 163,
-        "p95": 354,
-        "samples": 53
+        "p50": 162,
+        "p95": 325,
+        "samples": 40
       }
     },
     {
@@ -58,25 +58,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 283,
+      "latencyMs": 400,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-05T15:45:10.534Z",
+      "checkedAt": "2026-11-05T21:55:14.568Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 53
+          "samples": 40
         },
         "7d": {
           "ratio": 1,
-          "samples": 349
+          "samples": 337
         }
       },
       "latency24h": {
-        "p50": 188,
-        "p95": 532,
-        "samples": 53
+        "p50": 183,
+        "p95": 449,
+        "samples": 40
       }
     },
     {
@@ -89,25 +89,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 150,
+      "latencyMs": 396,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-05T15:45:10.534Z",
+      "checkedAt": "2026-11-05T21:55:14.568Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 53
+          "samples": 40
         },
         "7d": {
           "ratio": 1,
-          "samples": 349
+          "samples": 337
         }
       },
       "latency24h": {
-        "p50": 162,
-        "p95": 388,
-        "samples": 53
+        "p50": 160,
+        "p95": 377,
+        "samples": 40
       }
     },
     {
@@ -120,25 +120,25 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 336,
+      "latencyMs": 258,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-05T15:45:10.534Z",
+      "checkedAt": "2026-11-05T21:55:14.568Z",
       "uptime": {
         "24h": {
           "ratio": 1,
-          "samples": 53
+          "samples": 40
         },
         "7d": {
           "ratio": 1,
-          "samples": 349
+          "samples": 337
         }
       },
       "latency24h": {
-        "p50": 308,
+        "p50": 304,
         "p95": 450,
-        "samples": 53
+        "samples": 40
       }
     }
   ],
@@ -154,36 +154,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 41889520542,
-        "number": 137,
-        "title": "Merge pull request #64 from yel-hadr/motion-polish",
+        "id": 42089025628,
+        "number": 139,
+        "title": "Merge pull request #65 from yel-hadr/blog-column-ease",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41889520542",
-        "headSha": "23f04467c14b12e07c2e29489822d4899f66e098",
-        "createdAt": "2026-11-04T18:40:48Z",
-        "startedAt": "2026-11-04T18:40:48Z",
-        "updatedAt": "2026-11-04T18:42:08Z",
-        "durationSeconds": 80
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/42089025628",
+        "headSha": "a27a9b84d39c73f1ce4ab722f773d1c85df606c7",
+        "createdAt": "2026-11-05T18:56:11Z",
+        "startedAt": "2026-11-05T18:56:11Z",
+        "updatedAt": "2026-11-05T18:57:37Z",
+        "durationSeconds": 86
       },
       "lastCompletedRun": {
-        "id": 41889520542,
-        "number": 137,
-        "title": "Merge pull request #64 from yel-hadr/motion-polish",
+        "id": 42089025628,
+        "number": 139,
+        "title": "Merge pull request #65 from yel-hadr/blog-column-ease",
         "event": "push",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/portfolio/actions/runs/41889520542",
-        "headSha": "23f04467c14b12e07c2e29489822d4899f66e098",
-        "createdAt": "2026-11-04T18:40:48Z",
-        "startedAt": "2026-11-04T18:40:48Z",
-        "updatedAt": "2026-11-04T18:42:08Z",
-        "durationSeconds": 80
+        "url": "https://github.com/yel-hadr/portfolio/actions/runs/42089025628",
+        "headSha": "a27a9b84d39c73f1ce4ab722f773d1c85df606c7",
+        "createdAt": "2026-11-05T18:56:11Z",
+        "startedAt": "2026-11-05T18:56:11Z",
+        "updatedAt": "2026-11-05T18:57:37Z",
+        "durationSeconds": 86
       },
-      "lastSuccessAt": "2026-11-04T18:42:08Z",
+      "lastSuccessAt": "2026-11-05T18:57:37Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 42054272582,
-        "number": 502,
+        "id": 42089179880,
+        "number": 504,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42054272582",
-        "headSha": "98964a993a719dc929bb20a05e29c2b817c39c08",
-        "createdAt": "2026-11-05T15:22:12Z",
-        "startedAt": "2026-11-05T15:22:12Z",
-        "updatedAt": "2026-11-05T15:22:37Z",
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42089179880",
+        "headSha": "6b47dc07d8d32d708cb0e4ae41df85d3ee087c25",
+        "createdAt": "2026-11-05T18:57:10Z",
+        "startedAt": "2026-11-05T18:57:10Z",
+        "updatedAt": "2026-11-05T18:57:35Z",
         "durationSeconds": 25
       },
       "lastCompletedRun": {
-        "id": 42054272582,
-        "number": 502,
+        "id": 42089179880,
+        "number": 504,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42054272582",
-        "headSha": "98964a993a719dc929bb20a05e29c2b817c39c08",
-        "createdAt": "2026-11-05T15:22:12Z",
-        "startedAt": "2026-11-05T15:22:12Z",
-        "updatedAt": "2026-11-05T15:22:37Z",
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42089179880",
+        "headSha": "6b47dc07d8d32d708cb0e4ae41df85d3ee087c25",
+        "createdAt": "2026-11-05T18:57:10Z",
+        "startedAt": "2026-11-05T18:57:10Z",
+        "updatedAt": "2026-11-05T18:57:35Z",
         "durationSeconds": 25
       },
-      "lastSuccessAt": "2026-11-05T15:22:37Z",
+      "lastSuccessAt": "2026-11-05T18:57:35Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
