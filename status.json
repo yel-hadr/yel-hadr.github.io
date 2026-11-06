@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T23:16:27.083Z",
+  "generatedAt": "2026-11-06T23:44:54.213Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 130,
+      "latencyMs": 214,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T23:16:27.083Z",
+      "checkedAt": "2026-11-06T23:44:54.213Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 130,
+      "latencyMs": 214,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T23:16:27.083Z",
+      "checkedAt": "2026-11-06T23:44:54.213Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -75,7 +75,7 @@
       },
       "latency24h": {
         "p50": 171,
-        "p95": 285,
+        "p95": 281,
         "samples": 54
       }
     },
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 123,
+      "latencyMs": 197,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T23:16:27.083Z",
+      "checkedAt": "2026-11-06T23:44:54.213Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 245,
+      "latencyMs": 266,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T23:16:27.083Z",
+      "checkedAt": "2026-11-06T23:44:54.213Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -136,7 +136,7 @@
         }
       },
       "latency24h": {
-        "p50": 303,
+        "p50": 302,
         "p95": 435,
         "samples": 54
       }
@@ -203,41 +203,41 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 42307392633,
-        "number": 560,
+        "id": 42310767195,
+        "number": 561,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42307392633",
-        "headSha": "d7c461f74e67cbd5130ec0eae070b7341bb35b9e",
-        "createdAt": "2026-11-06T22:48:03Z",
-        "startedAt": "2026-11-06T22:48:03Z",
-        "updatedAt": "2026-11-06T22:48:34Z",
-        "durationSeconds": 31
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42310767195",
+        "headSha": "4b4c223b0e8794d7b989e7ab30fd3f9705bf5b4d",
+        "createdAt": "2026-11-06T23:16:30Z",
+        "startedAt": "2026-11-06T23:16:30Z",
+        "updatedAt": "2026-11-06T23:17:02Z",
+        "durationSeconds": 32
       },
       "lastCompletedRun": {
-        "id": 42307392633,
-        "number": 560,
+        "id": 42310767195,
+        "number": 561,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42307392633",
-        "headSha": "d7c461f74e67cbd5130ec0eae070b7341bb35b9e",
-        "createdAt": "2026-11-06T22:48:03Z",
-        "startedAt": "2026-11-06T22:48:03Z",
-        "updatedAt": "2026-11-06T22:48:34Z",
-        "durationSeconds": 31
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42310767195",
+        "headSha": "4b4c223b0e8794d7b989e7ab30fd3f9705bf5b4d",
+        "createdAt": "2026-11-06T23:16:30Z",
+        "startedAt": "2026-11-06T23:16:30Z",
+        "updatedAt": "2026-11-06T23:17:02Z",
+        "durationSeconds": 32
       },
-      "lastSuccessAt": "2026-11-06T22:48:34Z",
+      "lastSuccessAt": "2026-11-06T23:17:02Z",
       "successRate": {
         "window": 20,
         "decisive": 19,
-        "succeeded": 18,
-        "rate": 0.9474
+        "succeeded": 19,
+        "rate": 1
       },
       "error": null
     },
