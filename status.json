@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T14:02:50.140Z",
+  "generatedAt": "2026-11-06T14:31:14.059Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 143,
+      "latencyMs": 145,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T14:02:50.140Z",
+      "checkedAt": "2026-11-06T14:31:14.059Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 160,
+      "latencyMs": 154,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T14:02:50.140Z",
+      "checkedAt": "2026-11-06T14:31:14.059Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -93,7 +93,7 @@
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T14:02:50.140Z",
+      "checkedAt": "2026-11-06T14:31:14.059Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 298,
+      "latencyMs": 352,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-06T14:02:50.140Z",
+      "checkedAt": "2026-11-06T14:31:14.059Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 42226573376,
-        "number": 539,
+        "id": 42230456733,
+        "number": 540,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42226573376",
-        "headSha": "7509586ce87ff57467e0c2729283941189d6064f",
-        "createdAt": "2026-11-06T13:34:24Z",
-        "startedAt": "2026-11-06T13:34:24Z",
-        "updatedAt": "2026-11-06T13:37:42Z",
-        "durationSeconds": 198
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42230456733",
+        "headSha": "6f46f3195023f23efa9f335bf8e7c9ee4b2e126a",
+        "createdAt": "2026-11-06T14:02:53Z",
+        "startedAt": "2026-11-06T14:02:53Z",
+        "updatedAt": "2026-11-06T14:05:59Z",
+        "durationSeconds": 186
       },
       "lastCompletedRun": {
-        "id": 42226573376,
-        "number": 539,
+        "id": 42230456733,
+        "number": 540,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42226573376",
-        "headSha": "7509586ce87ff57467e0c2729283941189d6064f",
-        "createdAt": "2026-11-06T13:34:24Z",
-        "startedAt": "2026-11-06T13:34:24Z",
-        "updatedAt": "2026-11-06T13:37:42Z",
-        "durationSeconds": 198
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/42230456733",
+        "headSha": "6f46f3195023f23efa9f335bf8e7c9ee4b2e126a",
+        "createdAt": "2026-11-06T14:02:53Z",
+        "startedAt": "2026-11-06T14:02:53Z",
+        "updatedAt": "2026-11-06T14:05:59Z",
+        "durationSeconds": 186
       },
-      "lastSuccessAt": "2026-11-06T13:37:42Z",
+      "lastSuccessAt": "2026-11-06T14:05:59Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
