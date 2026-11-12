@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T10:53:42.310Z",
+  "generatedAt": "2026-11-12T11:22:09.158Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 146,
+      "latencyMs": 158,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T10:53:42.310Z",
+      "checkedAt": "2026-11-12T11:22:09.158Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -43,7 +43,7 @@
         }
       },
       "latency24h": {
-        "p50": 168,
+        "p50": 166,
         "p95": 341,
         "samples": 49
       }
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 163,
+      "latencyMs": 139,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T10:53:42.310Z",
+      "checkedAt": "2026-11-12T11:22:09.158Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -74,7 +74,7 @@
         }
       },
       "latency24h": {
-        "p50": 174,
+        "p50": 171,
         "p95": 356,
         "samples": 49
       }
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 150,
+      "latencyMs": 134,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T10:53:42.310Z",
+      "checkedAt": "2026-11-12T11:22:09.158Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -105,7 +105,7 @@
         }
       },
       "latency24h": {
-        "p50": 171,
+        "p50": 169,
         "p95": 358,
         "samples": 49
       }
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 334,
+      "latencyMs": 297,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T10:53:42.310Z",
+      "checkedAt": "2026-11-12T11:22:09.158Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 43200280384,
-        "number": 839,
+        "id": 43204370168,
+        "number": 840,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43200280384",
-        "headSha": "287103fde04a9e3d1c258fcaa709051670524a9a",
-        "createdAt": "2026-11-12T10:25:43Z",
-        "startedAt": "2026-11-12T10:25:43Z",
-        "updatedAt": "2026-11-12T10:26:07Z",
-        "durationSeconds": 24
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43204370168",
+        "headSha": "b3d7b0f328c25ebc02e817f196acd8f9d31544c4",
+        "createdAt": "2026-11-12T10:53:46Z",
+        "startedAt": "2026-11-12T10:53:46Z",
+        "updatedAt": "2026-11-12T10:54:13Z",
+        "durationSeconds": 27
       },
       "lastCompletedRun": {
-        "id": 43200280384,
-        "number": 839,
+        "id": 43204370168,
+        "number": 840,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43200280384",
-        "headSha": "287103fde04a9e3d1c258fcaa709051670524a9a",
-        "createdAt": "2026-11-12T10:25:43Z",
-        "startedAt": "2026-11-12T10:25:43Z",
-        "updatedAt": "2026-11-12T10:26:07Z",
-        "durationSeconds": 24
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43204370168",
+        "headSha": "b3d7b0f328c25ebc02e817f196acd8f9d31544c4",
+        "createdAt": "2026-11-12T10:53:46Z",
+        "startedAt": "2026-11-12T10:53:46Z",
+        "updatedAt": "2026-11-12T10:54:13Z",
+        "durationSeconds": 27
       },
-      "lastSuccessAt": "2026-11-12T10:26:07Z",
+      "lastSuccessAt": "2026-11-12T10:54:13Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
