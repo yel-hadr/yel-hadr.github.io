@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T12:47:23.838Z",
+  "generatedAt": "2026-11-12T13:15:50.031Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 110,
+      "latencyMs": 295,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T12:47:23.838Z",
+      "checkedAt": "2026-11-12T13:15:50.031Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -43,7 +43,7 @@
         }
       },
       "latency24h": {
-        "p50": 163,
+        "p50": 166,
         "p95": 341,
         "samples": 49
       }
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 106,
+      "latencyMs": 438,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T12:47:23.838Z",
+      "checkedAt": "2026-11-12T13:15:50.031Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -75,7 +75,7 @@
       },
       "latency24h": {
         "p50": 171,
-        "p95": 356,
+        "p95": 367,
         "samples": 49
       }
     },
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 96,
+      "latencyMs": 193,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T12:47:23.838Z",
+      "checkedAt": "2026-11-12T13:15:50.031Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 218,
+      "latencyMs": 308,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-12T12:47:23.838Z",
+      "checkedAt": "2026-11-12T13:15:50.031Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 43216786435,
-        "number": 843,
+        "id": 43221136156,
+        "number": 844,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43216786435",
-        "headSha": "948858bd556ff70f12b4da50b40d025e4267061a",
-        "createdAt": "2026-11-12T12:19:03Z",
-        "startedAt": "2026-11-12T12:19:03Z",
-        "updatedAt": "2026-11-12T12:19:29Z",
-        "durationSeconds": 26
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43221136156",
+        "headSha": "f978370b00e0ad81cd7775a3da331e5ddb2500f1",
+        "createdAt": "2026-11-12T12:47:26Z",
+        "startedAt": "2026-11-12T12:47:26Z",
+        "updatedAt": "2026-11-12T12:47:50Z",
+        "durationSeconds": 24
       },
       "lastCompletedRun": {
-        "id": 43216786435,
-        "number": 843,
+        "id": 43221136156,
+        "number": 844,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43216786435",
-        "headSha": "948858bd556ff70f12b4da50b40d025e4267061a",
-        "createdAt": "2026-11-12T12:19:03Z",
-        "startedAt": "2026-11-12T12:19:03Z",
-        "updatedAt": "2026-11-12T12:19:29Z",
-        "durationSeconds": 26
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43221136156",
+        "headSha": "f978370b00e0ad81cd7775a3da331e5ddb2500f1",
+        "createdAt": "2026-11-12T12:47:26Z",
+        "startedAt": "2026-11-12T12:47:26Z",
+        "updatedAt": "2026-11-12T12:47:50Z",
+        "durationSeconds": 24
       },
-      "lastSuccessAt": "2026-11-12T12:19:29Z",
+      "lastSuccessAt": "2026-11-12T12:47:50Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
