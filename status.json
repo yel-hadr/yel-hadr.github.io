@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T01:38:49.418Z",
+  "generatedAt": "2026-11-15T02:07:12.725Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 167,
+      "latencyMs": 92,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-15T01:38:49.418Z",
+      "checkedAt": "2026-11-15T02:07:12.725Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 173,
+      "latencyMs": 97,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-15T01:38:49.418Z",
+      "checkedAt": "2026-11-15T02:07:12.725Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -74,7 +74,7 @@
         }
       },
       "latency24h": {
-        "p50": 173,
+        "p50": 170,
         "p95": 399,
         "samples": 54
       }
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 173,
+      "latencyMs": 96,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-15T01:38:49.418Z",
+      "checkedAt": "2026-11-15T02:07:12.725Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 196,
+      "latencyMs": 221,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-15T01:38:49.418Z",
+      "checkedAt": "2026-11-15T02:07:12.725Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -136,7 +136,7 @@
         }
       },
       "latency24h": {
-        "p50": 276,
+        "p50": 267,
         "p95": 512,
         "samples": 54
       }
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 43661794735,
-        "number": 976,
+        "id": 43664064323,
+        "number": 977,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43661794735",
-        "headSha": "90706812ee32a340f6fc49e7256f33714ffa52f0",
-        "createdAt": "2026-11-15T01:10:18Z",
-        "startedAt": "2026-11-15T01:10:18Z",
-        "updatedAt": "2026-11-15T01:10:44Z",
-        "durationSeconds": 26
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43664064323",
+        "headSha": "aed7d4a422d41f08fc11b02ddc32283c2908c170",
+        "createdAt": "2026-11-15T01:38:53Z",
+        "startedAt": "2026-11-15T01:38:53Z",
+        "updatedAt": "2026-11-15T01:39:15Z",
+        "durationSeconds": 22
       },
       "lastCompletedRun": {
-        "id": 43661794735,
-        "number": 976,
+        "id": 43664064323,
+        "number": 977,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43661794735",
-        "headSha": "90706812ee32a340f6fc49e7256f33714ffa52f0",
-        "createdAt": "2026-11-15T01:10:18Z",
-        "startedAt": "2026-11-15T01:10:18Z",
-        "updatedAt": "2026-11-15T01:10:44Z",
-        "durationSeconds": 26
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43664064323",
+        "headSha": "aed7d4a422d41f08fc11b02ddc32283c2908c170",
+        "createdAt": "2026-11-15T01:38:53Z",
+        "startedAt": "2026-11-15T01:38:53Z",
+        "updatedAt": "2026-11-15T01:39:15Z",
+        "durationSeconds": 22
       },
-      "lastSuccessAt": "2026-11-15T01:10:44Z",
+      "lastSuccessAt": "2026-11-15T01:39:15Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
