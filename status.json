@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T02:40:36.064Z",
+  "generatedAt": "2026-11-16T03:09:00.240Z",
   "overall": "operational",
   "reasons": [],
   "rules": {
@@ -27,11 +27,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 170,
+      "latencyMs": 131,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-16T02:40:36.064Z",
+      "checkedAt": "2026-11-16T03:09:00.240Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -58,11 +58,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 170,
+      "latencyMs": 138,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-16T02:40:36.064Z",
+      "checkedAt": "2026-11-16T03:09:00.240Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -74,7 +74,7 @@
         }
       },
       "latency24h": {
-        "p50": 156,
+        "p50": 155,
         "p95": 344,
         "samples": 53
       }
@@ -89,11 +89,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 163,
+      "latencyMs": 136,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-16T02:40:36.064Z",
+      "checkedAt": "2026-11-16T03:09:00.240Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -105,7 +105,7 @@
         }
       },
       "latency24h": {
-        "p50": 147,
+        "p50": 145,
         "p95": 302,
         "samples": 53
       }
@@ -120,11 +120,11 @@
       "state": "up",
       "ok": true,
       "statusCode": 200,
-      "latencyMs": 369,
+      "latencyMs": 247,
       "slowMs": 3000,
       "attempts": 1,
       "error": null,
-      "checkedAt": "2026-11-16T02:40:36.064Z",
+      "checkedAt": "2026-11-16T03:09:00.240Z",
       "uptime": {
         "24h": {
           "ratio": 1,
@@ -203,36 +203,36 @@
       "state": "passing",
       "inProgress": false,
       "latestRun": {
-        "id": 43790717350,
-        "number": 1031,
+        "id": 43793613069,
+        "number": 1032,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43790717350",
-        "headSha": "6fdaa9c382a74048ddae3b90b100cd13fb17dda2",
-        "createdAt": "2026-11-16T02:12:16Z",
-        "startedAt": "2026-11-16T02:12:16Z",
-        "updatedAt": "2026-11-16T02:12:42Z",
-        "durationSeconds": 26
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43793613069",
+        "headSha": "6c808ba8c3e2412f378d0f6b8add49eadda39c4e",
+        "createdAt": "2026-11-16T02:40:40Z",
+        "startedAt": "2026-11-16T02:40:40Z",
+        "updatedAt": "2026-11-16T02:41:08Z",
+        "durationSeconds": 28
       },
       "lastCompletedRun": {
-        "id": 43790717350,
-        "number": 1031,
+        "id": 43793613069,
+        "number": 1032,
         "title": "pages build and deployment",
         "event": "dynamic",
         "branch": "main",
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43790717350",
-        "headSha": "6fdaa9c382a74048ddae3b90b100cd13fb17dda2",
-        "createdAt": "2026-11-16T02:12:16Z",
-        "startedAt": "2026-11-16T02:12:16Z",
-        "updatedAt": "2026-11-16T02:12:42Z",
-        "durationSeconds": 26
+        "url": "https://github.com/yel-hadr/yel-hadr.github.io/actions/runs/43793613069",
+        "headSha": "6c808ba8c3e2412f378d0f6b8add49eadda39c4e",
+        "createdAt": "2026-11-16T02:40:40Z",
+        "startedAt": "2026-11-16T02:40:40Z",
+        "updatedAt": "2026-11-16T02:41:08Z",
+        "durationSeconds": 28
       },
-      "lastSuccessAt": "2026-11-16T02:12:42Z",
+      "lastSuccessAt": "2026-11-16T02:41:08Z",
       "successRate": {
         "window": 20,
         "decisive": 20,
